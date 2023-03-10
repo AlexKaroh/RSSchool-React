@@ -5,13 +5,17 @@ import { NavLink } from 'react-router-dom';
 class Nav extends React.Component {
   render() {
     return (
-      <nav>
-        <ul>
-          <li>
-            <NavLink to="/">Home Page</NavLink>
+      <nav className="nav">
+        <ul className="nav__list">
+          <li className="nav__item">
+            <NavLink className="nav__link" to="/">
+              Home Page
+            </NavLink>
           </li>
-          <li>
-            <NavLink to="/AboutUs">About Us</NavLink>
+          <li className="nav__item">
+            <NavLink className="nav__link" to="/AboutUs">
+              About Us
+            </NavLink>
           </li>
         </ul>
       </nav>
