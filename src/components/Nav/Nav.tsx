@@ -1,8 +1,20 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 class Nav extends React.Component {
   render() {
-    return <h1>Nav</h1>;
+    return (
+      <nav>
+        <ul>
+          <li>
+            <NavLink to="/">Home Page</NavLink>
+          </li>
+          <li>
+            <NavLink to="/AboutUs">About Us</NavLink>
+          </li>
+        </ul>
+      </nav>
+    );
   }
 }
 
