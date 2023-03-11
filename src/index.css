@@ -1,7 +1,12 @@
 body {
   margin: 0;
   padding: 0;
-  background-color: #232529;
+  background-image: url(./assets/dota_back.jpg);
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-attachment: fixed;
+  position: relative;
   color: #fff;
   font-family: Inter,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;
 }
