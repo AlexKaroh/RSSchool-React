@@ -5,8 +5,13 @@ class Footer extends React.Component {
   render() {
     return (
       <footer className="footer">
-        <div className="footer__author">Created by AlexKaroh</div>
-        <span className="footer__copyright">© 2023, All Rights Reserved</span>
+        <div className="footer__author"></div>
+        <span className="footer__copyright">
+          Design & Assets by{' '}
+          <a className="footer__ref" href="https://www.dota2.com/">
+            Dota 2
+          </a>
+        </span>
         <a href="https://rs.school/">
           <img className="footer__school_logo" src={rsslogo} alt="rss logo" />
         </a>

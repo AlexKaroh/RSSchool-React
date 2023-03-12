@@ -13,3 +13,12 @@
   transform: scale(1.15);
   transition: 0.3s;
 }
+
+.footer__ref {
+  text-decoration: none;
+  color: rgb(255, 78, 78);
+}
+
+.footer__author {
+  padding-left: 20px;
+}
