@@ -2,6 +2,7 @@ import React from 'react';
 import './HomePage.css';
 import heroes from '../../heroes.json';
 import searchImg from '../../assets/search.svg';
+import Card from '../../components/Card/Card';
 
 class Home extends React.Component {
   state = {
@@ -47,18 +48,14 @@ class Home extends React.Component {
         <div className="card__container">
           {this.state.filteredArr.map((item) => {
             return (
-              <div className="card" key={item.id}>
-                <div className="card__image_container">
-                  <img className="card__image" src={item.image} alt="hero image" />
-                </div>
-                <div className="card__name">{item.name}</div>
-                <div className="card__info">
-                  <div className="card__attack">{item.attack_type}</div>
-                  <div className="card__attribute_container">
-                    <img className="card__attribute" src={item.primary_attr} alt="hero attribute" />
-                  </div>
-                </div>
-              </div>
+              <Card
+                key={item.id}
+                id={item.id}
+                image={item.image}
+                name={item.name}
+                attackType={item.attack_type}
+                primaryAttr={item.primary_attr}
+              />
             );
           })}
         </div>
