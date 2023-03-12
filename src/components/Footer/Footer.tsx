@@ -7,7 +7,7 @@ class Footer extends React.Component {
       <footer className="footer">
         <div className="footer__author"></div>
         <span className="footer__copyright">
-          Design & Assets by{' '}
+          Images & Video by{' '}
           <a className="footer__ref" href="https://www.dota2.com/">
             Dota 2
           </a>
