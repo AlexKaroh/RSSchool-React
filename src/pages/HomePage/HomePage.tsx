@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react';
 import './HomePage.css';
 import heroes from '../../heroes.json';
@@ -6,16 +5,27 @@ import searchImg from '../../assets/search.svg';
 
 class Home extends React.Component {
   state = {
-    SearchValue: '',
+    searchValue: '',
+    filteredArr: heroes,
   };
 
-  componentDidMount() {
-    this.setState({ SearchValue: String(localStorage.getItem('SearchValue')) });
+  static getDerivedStateFromProps(props: object, state: { searchValue: string }) {
+    const storedValue = localStorage.getItem('Search Value');
+    const searchValue = storedValue || state.searchValue;
+    const filteredArr = heroes.filter((el) =>
+      el.name.toLowerCase().includes(searchValue.toLowerCase())
+    );
+
+    return { searchValue, filteredArr };
   }
 
-  updateSearchValue = (SearchValue: string): void => {
-    localStorage.setItem('SearchValue', SearchValue);
-    this.setState({ SearchValue });
+  handleChange = (searchValue: string) => {
+    if (searchValue === '') {
+      localStorage.removeItem('Search Value');
+    } else {
+      localStorage.setItem('Search Value', searchValue);
+    }
+    this.setState({ searchValue });
   };
 
   render() {
@@ -24,17 +34,18 @@ class Home extends React.Component {
         <div className="search_container">
           <div className="seacrh__form">
             <input
-              onChange={(el) => this.updateSearchValue(el.target.value)}
+              value={this.state.searchValue}
+              onChange={(e) => this.handleChange(e.target.value)}
               className="seacrh__bar"
               type="text"
             />
-            <button className="search__submit" onClick={() => console.log('work')}>
+            <button className="search__submit">
               <img className="search__img" src={searchImg} alt="search img" />
             </button>
           </div>
         </div>
         <div className="card__container">
-          {heroes.map((item) => {
+          {this.state.filteredArr.map((item) => {
             return (
               <div className="card" key={item.id}>
                 <div className="card__image_container">
