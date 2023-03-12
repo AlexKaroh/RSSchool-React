@@ -1,8 +1,15 @@
 @font-face {
-  font-family: "Trajan"; 
-  src: url("../../fonts/Trajan.ttf") format("truetype"); 
-  font-style: normal; 
-  font-weight: normal; 
+  font-family: "Reaver Regular";
+  src: url(./fonts/Reaver-Regular.woff);
+  font-style: normal;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: "Reaver SemiBold";
+  src: url(./fonts/Reaver-SemiBold.woff);
+  font-style: normal;
+  font-weight: normal;
 }
 
 body {

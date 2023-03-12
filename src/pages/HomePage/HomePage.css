@@ -41,7 +41,6 @@ button:focus {
 }
 
 .search__submit {
-  cursor: pointer;
   border: none;
   height: 35px;
   background-color: #25282a;
@@ -79,15 +78,15 @@ button:focus {
 
 .card__name {
   text-align: center;
-  font-size: 20px;
+  font-size: 19px;
   line-height: 20px;
-  font-family: "Trajan";
-  font-weight: bold;
+  font-family: "Reaver SemiBold", sans-serif;;
   color: #fff;
   text-transform: uppercase;
   letter-spacing: 1px;
   padding-left: 0px;
   text-shadow: 0px 0px 4px #000;
+  font-weight: 600;
 }
 
 .card__info {
@@ -103,7 +102,7 @@ button:focus {
 }
 
 .card__attack {
-  font-family: "Trajan";
+  font-family: "Reaver Regular";
   font-size: 16px;
 }
 
