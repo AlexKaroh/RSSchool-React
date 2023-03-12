@@ -1,19 +1,37 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react';
 import './HomePage.css';
 import heroes from '../../heroes.json';
 import searchImg from '../../assets/search.svg';
 
 class Home extends React.Component {
+  state = {
+    SearchValue: '',
+  };
+
+  componentDidMount() {
+    this.setState({ SearchValue: String(localStorage.getItem('SearchValue')) });
+  }
+
+  updateSearchValue = (SearchValue: string): void => {
+    localStorage.setItem('SearchValue', SearchValue);
+    this.setState({ SearchValue });
+  };
+
   render() {
     return (
       <div className="home">
         <div className="search_container">
-          <form className="seacrh__form" role="search">
-            <input className="seacrh__bar" type="text" />
-            <button className="search__submit">
+          <div className="seacrh__form">
+            <input
+              onChange={(el) => this.updateSearchValue(el.target.value)}
+              className="seacrh__bar"
+              type="text"
+            />
+            <button className="search__submit" onClick={() => console.log('work')}>
               <img className="search__img" src={searchImg} alt="search img" />
             </button>
-          </form>
+          </div>
         </div>
         <div className="card__container">
           {heroes.map((item) => {
