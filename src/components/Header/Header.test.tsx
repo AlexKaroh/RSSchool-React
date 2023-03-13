@@ -4,7 +4,7 @@ import { MemoryRouter } from 'react-router-dom';
 import Header from './Header';
 
 describe('Header component', () => {
-  test('renders the React logo', () => {
+  test('render React logo', () => {
     render(
       <MemoryRouter>
         <Header />
