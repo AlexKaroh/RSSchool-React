@@ -3,119 +3,119 @@
     "name": "Anti-Mage",
     "primary_attr": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/icons/hero_agility.png",
     "attack_type": "Melee",
-    "image": "http://media.fatalgame.com/hero/0k/22/hor_ico.png",
+    "image": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/antimage.png",
     "id": 1
   },
   {
     "name": "Axe",
     "primary_attr": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/icons/hero_strength.png",
     "attack_type": "Melee",
-    "image": "http://media.fatalgame.com/hero/0k/58/hor_ico.png",
+    "image": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/axe.png",
     "id": 2
   },
   {
     "name": "Bane",
     "primary_attr": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/icons/hero_intelligence.png",
     "attack_type": "Ranged",
-    "image": "http://media.fatalgame.com/hero/0k/89/hor_ico.png",
+    "image": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/bane.png",
     "id": 3
   },
   {
     "name": "Bloodseeker",
     "primary_attr": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/icons/hero_agility.png",
     "attack_type": "Melee",
-    "image": "http://media.fatalgame.com/hero/0k/73/hor_ico.png",
+    "image": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/bloodseeker.png",
     "id": 4
   },
   {
     "name": "Crystal Maiden",
     "primary_attr": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/icons/hero_intelligence.png",
     "attack_type": "Ranged",
-    "image": "http://media.fatalgame.com/hero/0k/40/hor_ico.png",
+    "image": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/crystal_maiden.png",
     "id": 5
   },
   {
     "name": "Drow Ranger",
     "primary_attr": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/icons/hero_agility.png",
     "attack_type": "Ranged",
-    "image": "http://media.fatalgame.com/hero/0k/23/hor_ico.png",
+    "image": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/drow_ranger.png",
     "id": 6
   },
   {
     "name": "Earthshaker",
     "primary_attr": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/icons/hero_strength.png",
     "attack_type": "Melee",
-    "image": "http://media.fatalgame.com/hero/0k/1/hor_ico.png",
+    "image": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/earthshaker.png",
     "id": 7
   },
   {
     "name": "Juggernaut",
     "primary_attr": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/icons/hero_agility.png",
     "attack_type": "Melee",
-    "image": "http://media.fatalgame.com/hero/0k/24/hor_ico.png",
+    "image": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/juggernaut.png",
     "id": 8
   },
   {
     "name": "Mirana",
     "primary_attr": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/icons/hero_agility.png",
     "attack_type": "Ranged",
-    "image": "http://media.fatalgame.com/hero/0k/25/hor_ico.png",
+    "image": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/mirana.png",
     "id": 9
   },
   {
     "name": "Morphling",
     "primary_attr": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/icons/hero_agility.png",
     "attack_type": "Ranged",
-    "image": "http://media.fatalgame.com/hero/0k/26/hor_ico.png",
+    "image": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/morphling.png",
     "id": 10
   },
   {
     "name": "Shadow Fiend",
     "primary_attr": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/icons/hero_agility.png",
     "attack_type": "Ranged",
-    "image": "http://media.fatalgame.com/hero/0k/74/hor_ico.png",
+    "image": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/nevermore.png",
     "id": 11
   },
   {
     "name": "Phantom Lancer",
     "primary_attr": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/icons/hero_agility.png",
     "attack_type": "Melee",
-    "image": "http://media.fatalgame.com/hero/0k/27/hor_ico.png",
+    "image": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/phantom_lancer.png",
     "id": 12
   },
   {
     "name": "Puck",
     "primary_attr": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/icons/hero_intelligence.png",
     "attack_type": "Ranged",
-    "image": "http://media.fatalgame.com/hero/0k/41/hor_ico.png",
+    "image": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/puck.png",
     "id": 13
   },
   {
     "name": "Pudge",
     "primary_attr": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/icons/hero_strength.png",
     "attack_type": "Melee",
-    "image": "http://media.fatalgame.com/hero/0k/59/hor_ico.png",
+    "image": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/pudge.png",
     "id": 14
   },
   {
     "name": "Razor",
     "primary_attr": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/icons/hero_agility.png",
     "attack_type": "Ranged",
-    "image": "http://media.fatalgame.com/hero/0k/75/hor_ico.png",
+    "image": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/razor.png",
     "id": 15
   },
   {
     "name": "Sand King",
     "primary_attr": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/icons/hero_strength.png",
     "attack_type": "Melee",
-    "image": "http://media.fatalgame.com/hero/0k/60/hor_ico.png",
+    "image": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/sand_king.png",
     "id": 16
   },
   {
     "name": "Storm Spirit",
     "primary_attr": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/icons/hero_intelligence.png",
     "attack_type": "Ranged",
-    "image": "http://media.fatalgame.com/hero/0k/42/hor_ico.png",
+    "image": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/storm_spirit.png",
     "id": 17
   },
   {
@@ -123,132 +123,132 @@
     "name": "Invoker",
     "primary_attr": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/icons/hero_intelligence.png",
     "attack_type": "Ranged",
-    "image": "http://media.fatalgame.com/hero/0k/104/hor_ico.png"
+    "image": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/invoker.png"
     },
     {
     "id": 19,
     "name": "Templar Assassin",
     "primary_attr": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/icons/hero_agility.png",
     "attack_type": "Ranged",
-    "image": "http://media.fatalgame.com/hero/0k/31/hor_ico.png"
+    "image": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/templar_assassin.png"
     },
     {
     "id": 20,
     "name": "Terrorblade",
     "primary_attr": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/icons/hero_agility.png",
     "attack_type": "Melee",
-    "image": "http://media.fatalgame.com/hero/0k/88/hor_ico.png"
+    "image": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/terrorblade.png"
     },
     {
     "id": 21,
     "name": "Tidehunter",
     "primary_attr": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/icons/hero_strength.png",
     "attack_type": "Melee",
-    "image": "http://media.fatalgame.com/hero/0k/62/hor_ico.png"
+    "image": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/tidehunter.png"
     },
     {
     "id": 22,
     "name": "Timbersaw",
     "primary_attr": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/icons/hero_strength.png",
     "attack_type": "Melee",
-    "image": "http://media.fatalgame.com/hero/0k/15/hor_ico.png"
+    "image": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/shredder.png"
     },
     {
     "id": 23,
     "name": "Tinker",
     "primary_attr": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/icons/hero_intelligence.png",
     "attack_type": "Ranged",
-    "image": "http://media.fatalgame.com/hero/0k/47/hor_ico.png"
+    "image": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/tinker.png"
     },
     {
     "id": 24,
     "name": "Tiny",
     "primary_attr": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/icons/hero_strength.png",
     "attack_type": "Melee",
-    "image": "http://media.fatalgame.com/hero/0k/3/hor_ico.png"
+    "image": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/tiny.png"
     },
     {
     "id": 25,
     "name": "Treant Protector",
     "primary_attr": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/icons/hero_strength.png",
     "attack_type": "Melee",
-    "image": "http://media.fatalgame.com/hero/0k/12/hor_ico.png"
+    "image": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/treant.png"
     },
     {
     "id": 26,
     "name": "Troll Warlord",
     "primary_attr": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/icons/hero_agility.png",
     "attack_type": "Ranged",
-    "image": "http://media.fatalgame.com/hero/0k/38/hor_ico.png"
+    "image": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/troll_warlord.png"
     },
     {
     "id": 27,
     "name": "Tusk",
     "primary_attr": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/icons/hero_strength.png",
     "attack_type": "Melee",
-    "image": "http://media.fatalgame.com/hero/0k/17/hor_ico.png"
+    "image": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/tusk.png"
     },
     {
     "id": 28,
     "name": "Batrider",
     "primary_attr": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/icons/hero_intelligence.png",
     "attack_type": "Ranged",
-    "image": "http://media.fatalgame.com/hero/0k/102/hor_ico.png"
+    "image": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/batrider.png"
     },
     {
     "id": 29,
     "name": "Undying",
     "primary_attr": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/icons/hero_strength.png",
     "attack_type": "Melee",
-    "image": "http://media.fatalgame.com/hero/0k/70/hor_ico.png"
+    "image": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/undying.png"
     },
     {
     "id": 30,
     "name": "Ursa",
     "primary_attr": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/icons/hero_agility.png",
     "attack_type": "Melee",
-    "image": "http://media.fatalgame.com/hero/0k/34/hor_ico.png"
+    "image": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/ursa.png"
     },
     {
     "id": 31,
     "name": "Vengeful Spirit",
     "primary_attr": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/icons/hero_agility.png",
     "attack_type": "Ranged",
-    "image": "http://media.fatalgame.com/hero/0k/28/hor_ico.png"
+    "image": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/vengefulspirit.png"
     },
     {
     "id": 32,
     "name": "Venomancer",
     "primary_attr": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/icons/hero_agility.png",
     "attack_type": "Ranged",
-    "image": "http://media.fatalgame.com/hero/0k/76/hor_ico.png"
+    "image": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/venomancer.png"
     },
     {
     "id": 33,
     "name": "Viper",
     "primary_attr": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/icons/hero_agility.png",
     "attack_type": "Ranged",
-    "image": "http://media.fatalgame.com/hero/0k/79/hor_ico.png"
+    "image": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/viper.png"
     },
     {
     "id": 34,
     "name": "Visage",
     "primary_attr": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/icons/hero_intelligence.png",
     "attack_type": "Ranged",
-    "image": "http://media.fatalgame.com/hero/0k/107/hor_ico.png"
+    "image": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/visage.png"
     },
     {
     "id": 35,
     "name": "Slark",
     "primary_attr": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/icons/hero_agility.png",
     "attack_type": "Melee",
-    "image": "http://media.fatalgame.com/hero/0k/86/hor_ico.png"
+    "image": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/slark.png"
     },
     {
       "id": 36,
       "name": "Leshrak",
       "primary_attr": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/icons/hero_intelligence.png",
       "attack_type": "Melee",
-      "image": "http://media.fatalgame.com/hero/0k/100/hor_ico.png"
+      "image": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/leshrac.png"
     }
 ]
