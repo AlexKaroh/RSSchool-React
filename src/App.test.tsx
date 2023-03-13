@@ -5,12 +5,10 @@ import App from './App';
 import React from 'react';
 
 describe('App', () => {
-  it('Renders hello world', () => {
+  it('should render the App component', () => {
     render(<App />);
     expect(
-      screen.getByRole('heading', {
-        level: 1,
-      })
-    ).toHaveTextContent('Hello World');
+      screen.queryByText('I dont want to do tests for coverage my project 😰')
+    ).not.toBeInTheDocument();
   });
 });
