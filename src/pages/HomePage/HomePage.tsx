@@ -45,7 +45,7 @@ class Home extends React.Component {
             </button>
           </div>
         </div>
-        <div className="card__container">
+        <div className="card__container" data-testid="card">
           {this.state.filteredArr.map((item) => {
             return (
               <Card
