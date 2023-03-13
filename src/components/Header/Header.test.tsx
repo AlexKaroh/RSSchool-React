@@ -10,6 +10,6 @@ describe('Header component', () => {
         <Header />
       </MemoryRouter>
     );
-    expect(screen.getByAltText('react logo')).toBeInTheDocument();
+    expect(screen.getByAltText('dota logo')).toBeInTheDocument();
   });
 });

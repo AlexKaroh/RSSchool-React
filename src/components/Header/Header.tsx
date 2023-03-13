@@ -8,7 +8,7 @@ class Header extends React.Component {
     return (
       <header className="header">
         <Link to="/">
-          <img className="header__logo" src={dotalogo} alt="react logo" />
+          <img className="header__logo" src={dotalogo} alt="dota logo" />
         </Link>
         <Nav />
       </header>
