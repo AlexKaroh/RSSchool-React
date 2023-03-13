@@ -24,3 +24,21 @@ body {
   color: #fff;
   font-family: Inter,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;
 }
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  width: 5px;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #232529;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-track-piece {
+  background: rgb(80, 80, 80);
+}
