@@ -10,6 +10,7 @@ class NotFound extends React.Component {
         <div className="video__container">
           <video autoPlay muted preload="auto" loop className="video">
             <source
+              data-testid="dota2-video"
               type="video/mp4"
               src="https://cdn.cloudflare.steamstatic.com/apps/dota2/videos/dota_react/homepage/dota_montage_02.mp4"
             />
@@ -17,7 +18,7 @@ class NotFound extends React.Component {
           <div className="video__info">
             <h1 className="video__header_text">404</h1>
             <h2 className="video__text">Page not found</h2>
-            <img className="video__image" src={tinerGif} alt="" />
+            <img className="video__image" src={tinerGif} alt="tinker gif" />
             <Link className="video__link" to="/">
               <button className="video__button">Go Home</button>
             </Link>
