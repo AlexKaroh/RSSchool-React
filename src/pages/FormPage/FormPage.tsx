@@ -1,9 +1,10 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react';
 import './FormPage.css';
 import meleeIco from '../../assets/melee.svg';
 import rangedIco from '../../assets/ranged.svg';
 
-class FormPage extends React.Component {
+class FormPage extends React.Component<object, object> {
   render() {
     return (
       <div className="FormPage">
