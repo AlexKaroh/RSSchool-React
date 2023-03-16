@@ -5,6 +5,7 @@ import NotFound from './pages/404Page/404Page';
 import AboutUs from './pages/AboutUsPage/AboutUs';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
+import FormPage from './pages/FormPage/FormPage';
 class App extends React.Component<object, object> {
   render() {
     return (
@@ -13,6 +14,7 @@ class App extends React.Component<object, object> {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/AboutUs" element={<AboutUs />} />
+          <Route path="/Form" element={<FormPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
         <Footer />
