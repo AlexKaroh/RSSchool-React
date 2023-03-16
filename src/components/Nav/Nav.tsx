@@ -19,7 +19,7 @@ class Nav extends React.Component {
           </li>
           <li className="nav__item">
             <NavLink className="nav__link" to="/Form">
-              Create Card
+              Create Hero
             </NavLink>
           </li>
         </ul>
