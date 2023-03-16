@@ -5,7 +5,7 @@ import NotFound from './pages/404Page/404Page';
 import AboutUs from './pages/AboutUsPage/AboutUs';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
-class App extends React.Component<object, object> {
+class App extends React.Component {
   render() {
     return (
       <Router>

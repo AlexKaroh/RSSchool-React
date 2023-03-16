@@ -21,3 +21,15 @@
   filter: blur(0.5px);
   transition: 0.5s;
 }
+
+.header__page {
+  font-size: 20px;
+  margin: 0;
+}
+
+.header__container {
+  width: 15%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
