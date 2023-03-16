@@ -1,0 +1,88 @@
+.FormPage {
+  min-height: calc(100vh - 118px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.form {
+  margin: 10px 0;
+  padding: 10px 10px;
+  width: 350px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #00000050;
+  border-radius: 5px;
+  font-family: 'Reaver Regular';
+}
+
+.input_text, .input_text:focus {
+  height: 20px;
+  width: 55%;
+  background-color: #25282a;
+  border: 1px solid rgba(255, 255, 255, 0.265);
+}
+
+.switch {
+  margin: 0 5px;
+  position: relative;
+  display: inline-block;
+  width: 35px;
+  height: 18px;
+  top: 3px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #72e58a;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 14px;
+  width: 14px;
+  left: 4px;
+  bottom: 2px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #e3796a;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #e3796a;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(14px);
+  -ms-transform: translateX(14px);
+  transform: translateX(14px);
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}

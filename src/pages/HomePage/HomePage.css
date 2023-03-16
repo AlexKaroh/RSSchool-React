@@ -14,30 +14,16 @@
   border: 1px solid #25282a;
   border-radius: 2px;
 }
-input[type=text] {
-  padding-left: 10px;
-  font-family: 'Reaver Regular';
-  font-size: 18px;
-  color: whitesmoke;
-  border: 1px solid hsl(204, 6%, 15%);
-  border-radius: 2px;
-}
-
-input[type=text]:focus  {
-  outline: none;
-  border: 1px solid #25282a;
-  border-radius: 2px;
-  border: none;
-}
 
 .seacrh__bar {
   height: 30px;
   width: 100%;
   background-color: #25282a;
+  border: 1px solid hsl(204, 6%, 15%);
 }
 
-button:focus {
-  outline: none;
+.seacrh__bar:focus {
+  border: 1px solid #25282a;
 }
 
 .search__submit {

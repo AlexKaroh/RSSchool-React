@@ -25,6 +25,33 @@ body {
   font-family: Inter,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;
 }
 
+input[type=text] {
+  padding-left: 10px;
+  font-family: 'Reaver Regular';
+  font-size: 18px;
+  color: whitesmoke;
+  border-radius: 2px;
+}
+
+input[type=text]:focus  {
+  outline: none;
+  border-radius: 2px;
+}
+
+button:focus {
+  outline: none;
+}
+
+select, select:focus, select:focus-visible {
+  border: 1px solid rgba(255, 255, 255, 0.265);
+  border-radius: 2px;
+  outline: none !important;
+  background-color: #25282a;
+  font-family: 'Reaver Regular';
+  font-size: 16px;
+  color: white;
+}
+
 ::-webkit-scrollbar {
   width: 5px;
 }
