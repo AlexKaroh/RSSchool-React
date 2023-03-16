@@ -37,7 +37,7 @@ class FormPage extends React.Component {
               </span>
             </div>
             <div className="form__date">
-              <label>Date of creation: </label>
+              <label>Date of creation : </label>
               <input type="date" />
             </div>
             <div className="form__file">
@@ -48,7 +48,12 @@ class FormPage extends React.Component {
               <label>I consent to use of my data</label>
               <input type="checkbox" />
             </div>
-            <input type="submit" onSubmit={() => console.log('submit')} />
+            <input
+              type="button"
+              value="Create Hero"
+              className="form__submit"
+              onClick={() => console.log('submit')}
+            />
           </form>
         </div>
       </div>

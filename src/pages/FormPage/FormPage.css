@@ -86,3 +86,50 @@ input:checked + .slider:before {
 .slider.round:before {
   border-radius: 50%;
 }
+
+input[type="date" i] {
+  cursor: pointer;
+  background-color: #25282a;
+  font-family: 'Reaver Regular';
+  color: whitesmoke;
+  border: 1px solid rgba(255, 255, 255, 0.265);
+  outline: none !important;
+}
+
+input[type="file" i] {
+  width: 180px;
+  font-size: 13px;
+  font-family: 'Reaver Regular';
+  color: whitesmoke;
+  outline: none !important;
+}
+
+::file-selector-button {
+  font-family: 'Reaver Regular';
+  color: white;
+  font-size: 14px;
+  background-color: #ffffff00;
+  border: 1px solid #ffffff50;
+  border-radius: 5px;
+}
+
+::file-selector-button:hover {
+  cursor: pointer;
+  transition: 0.5s;
+  background-color: #00000050;
+}
+
+.form__submit {
+  cursor: pointer;
+  font-family: 'Reaver Regular';
+  color: white;
+  font-size: 14px;
+  background-color: #ffffff00;
+  border: 1px solid #ffffff50;
+  border-radius: 5px;
+}
+
+.form__submit:hover {
+  transition: 0.5s;
+  background-color: #00000050;
+}
