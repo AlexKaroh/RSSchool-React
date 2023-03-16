@@ -6,7 +6,8 @@ import AboutUs from './pages/AboutUsPage/AboutUs';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import FormPage from './pages/FormPage/FormPage';
-class App extends React.Component<object, object> {
+
+class App extends React.Component {
   render() {
     return (
       <Router>
