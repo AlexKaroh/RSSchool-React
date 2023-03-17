@@ -1,9 +1,9 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react';
 import './FormPage.css';
 import meleeIco from '../../assets/melee.svg';
 import rangedIco from '../../assets/ranged.svg';
 import IForm from 'interfaces/IForm';
+import IEvent from '../../interfaces/IEvent';
 
 class FormPage extends React.Component<object, IForm> {
   constructor(props: object) {
@@ -17,8 +17,12 @@ class FormPage extends React.Component<object, IForm> {
     };
   }
 
-  handleImageUpload(event: any) {
-    const file = event.target.files[0];
+  textInput = React.createRef<HTMLInputElement>();
+  selectInput = React.createRef<HTMLSelectElement>();
+  dateInput = React.createRef<HTMLInputElement>();
+
+  handleImageUpload(e: IEvent<HTMLInputElement>) {
+    const file = e.target.files![0];
     const reader = new FileReader();
 
     reader.onload = (e) => {
@@ -42,16 +46,13 @@ class FormPage extends React.Component<object, IForm> {
     }));
   }
 
-  textInput = React.createRef<HTMLInputElement>();
-  selectInput = React.createRef<HTMLSelectElement>();
-  dateInput = React.createRef<HTMLInputElement>();
-
   showResult = () => {
     console.log(this.textInput.current?.value);
     console.log(this.selectInput.current?.value);
     console.log(this.state.typeAttack);
     console.log(this.dateInput.current?.value);
     console.log(this.state.agree);
+    console.log(this.state.imageUrl);
   };
 
   render() {
@@ -106,9 +107,6 @@ class FormPage extends React.Component<object, IForm> {
             />
           </form>
         </div>
-        {this.state.imageUrl && (
-          <img src={this.state.imageUrl as string | undefined} alt="card image" />
-        )}
       </div>
     );
   }
