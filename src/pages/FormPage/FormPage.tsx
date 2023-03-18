@@ -90,6 +90,7 @@ class FormPage extends React.Component<object, IForm> {
             <div className="form__select padding">
               <label>Hero Attribute : </label>
               <select ref={this.selectInput}>
+                <option value="">Select Attribute</option>
                 <option value="Agility">Agility</option>
                 <option value="Strength">Strength</option>
                 <option value="Intelligence">Intelligence</option>
