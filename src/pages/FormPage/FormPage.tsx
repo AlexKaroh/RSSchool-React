@@ -72,6 +72,7 @@ class FormPage extends React.Component<object, IForm> {
       heroAgree: heroAgree,
       heroImage: heroImage,
       heroRole: heroRole,
+      id: this.state.customHeroesArr.length,
     });
     console.log(this.state.customHeroesArr);
     this.setState({ customHeroesArr: this.state.customHeroesArr });
@@ -162,7 +163,7 @@ class FormPage extends React.Component<object, IForm> {
         <div className="cards">
           {this.state.customHeroesArr.map((card) => (
             <CustomCard
-              key={card.heroName}
+              key={card.id}
               heroName={card.heroName}
               heroImage={card.heroImage}
               heroAttribute={card.heroAttribute}

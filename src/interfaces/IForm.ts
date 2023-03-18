@@ -3,6 +3,7 @@ export default interface IForm {
   agree: boolean;
   imageUrl: string | ArrayBuffer | null | undefined;
   role: string;
+  id?: number;
   customHeroesArr:
     | [
         {
@@ -13,6 +14,7 @@ export default interface IForm {
           heroAgree: string;
           heroImage: string;
           heroRole: string;
+          id: number;
         }
       ]
     | [];
