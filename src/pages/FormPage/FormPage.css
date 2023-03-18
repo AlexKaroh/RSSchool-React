@@ -10,7 +10,6 @@
   margin: 10px 0;
   padding: 10px 10px;
   width: 350px;
-  height: 200px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -132,4 +131,20 @@ input[type="file" i] {
 .form__submit:hover {
   transition: 0.5s;
   background-color: #00000050;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  justify-content: center;
+  padding: 15px;
+  text-align: center;
+}
+
+.form__checkbox {
+  margin: 5px auto;
+}
+
+.padding {
+  padding: 5px 0;
 }

@@ -82,11 +82,11 @@ class FormPage extends React.Component<object, IForm> {
       <div className="FormPage">
         <div className="form__container">
           <form className="form" onSubmit={() => console.log('submit')}>
-            <div className="form__text">
+            <div className="form__text padding">
               <label>Hero Name : </label>
               <input type="text" ref={this.textInput} className="input_text" />
             </div>
-            <div className="form__select">
+            <div className="form__select padding">
               <label>Hero Attribute : </label>
               <select ref={this.selectInput}>
                 <option value="Agility">Agility</option>
@@ -94,7 +94,7 @@ class FormPage extends React.Component<object, IForm> {
                 <option value="Intelligence">Intelligence</option>
               </select>
             </div>
-            <div className="form__switcher">
+            <div className="form__switcher padding">
               <label>Type of attack : </label>
               <span>
                 {' '}
@@ -109,7 +109,7 @@ class FormPage extends React.Component<object, IForm> {
                 <img src={meleeIco} alt="meleeIco" /> Melee
               </span>
             </div>
-            <div>
+            <div className="form__radio padding">
               <label>
                 {' '}
                 Role :
@@ -139,7 +139,7 @@ class FormPage extends React.Component<object, IForm> {
                 <label>Support</label>
               </label>
             </div>
-            <div className="form__date">
+            <div className="form__date padding">
               <label>Date of creation : </label>
               <input type="date" ref={this.dateInput} />
             </div>
@@ -147,7 +147,7 @@ class FormPage extends React.Component<object, IForm> {
               <label>Hero image </label>
               <input type="file" accept="image/png, image/jpeg" onChange={this.handleImageUpload} />
             </div>
-            <div className="form__checkbox">
+            <div className="form__checkbox padding">
               <label>I consent to use of my data</label>
               <input type="checkbox" onClick={() => this.handleClickAgree()} />
             </div>
