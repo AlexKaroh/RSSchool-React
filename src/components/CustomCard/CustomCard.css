@@ -1,0 +1,29 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Reaver Regular"
+}
+
+.card__hero_name {
+  font-family: "Reaver SemiBold";
+  font-size: 18px;
+  text-transform: uppercase;
+}
+
+.card__hero_date {
+  font-size: 14px;
+}
+
+.card__hero_attribute_image {
+  width: 30px;
+  height: 30px;
+}
+
+.card__image_header {
+  padding: 5px 0px;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}

@@ -4,6 +4,7 @@ import meleeIco from '../../assets/melee.svg';
 import rangedIco from '../../assets/ranged.svg';
 import IForm from 'interfaces/IForm';
 import IEvent from '../../interfaces/IEvent';
+import CustomCard from '../../components/CustomCard/CustomCard';
 
 class FormPage extends React.Component<object, IForm> {
   constructor(props: object) {
@@ -14,6 +15,8 @@ class FormPage extends React.Component<object, IForm> {
       typeAttack: true,
       agree: false,
       imageUrl: '',
+      role: '',
+      customHeroesArr: [],
     };
   }
 
@@ -21,17 +24,21 @@ class FormPage extends React.Component<object, IForm> {
   selectInput = React.createRef<HTMLSelectElement>();
   dateInput = React.createRef<HTMLInputElement>();
 
-  handleImageUpload(e: IEvent<HTMLInputElement>) {
-    const file = e.target.files![0];
+  handleImageUpload(event: IEvent<HTMLInputElement>) {
+    const file = event.target.files![0];
     const reader = new FileReader();
 
-    reader.onload = (e) => {
+    reader.onload = (event) => {
       this.setState({
-        imageUrl: e.target?.result,
+        imageUrl: event.target?.result,
       });
     };
 
     reader.readAsDataURL(file);
+  }
+
+  handleRadioChange(event: IEvent<HTMLInputElement>) {
+    this.setState({ role: event.target.value });
   }
 
   handleClickTypeAttack() {
@@ -47,12 +54,27 @@ class FormPage extends React.Component<object, IForm> {
   }
 
   showResult = () => {
-    console.log(this.textInput.current?.value);
-    console.log(this.selectInput.current?.value);
-    console.log(this.state.typeAttack);
-    console.log(this.dateInput.current?.value);
-    console.log(this.state.agree);
-    console.log(this.state.imageUrl);
+    const date = new Date();
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const currentDate = date.toLocaleDateString('en-US');
+    const heroName = this.textInput.current?.value;
+    const heroAttribute = this.selectInput.current?.value;
+    const heroTypeAttack = this.state.typeAttack;
+    const heroDate = this.dateInput.current?.value;
+    const heroAgree = this.state.agree;
+    const heroImage = this.state.imageUrl;
+    const heroRole = this.state.role;
+    (this.state.customHeroesArr as [object]).push({
+      heroName: heroName,
+      heroAttribute: heroAttribute,
+      heroTypeAttack: heroTypeAttack,
+      heroDate: heroDate,
+      heroAgree: heroAgree,
+      heroImage: heroImage,
+      heroRole: heroRole,
+    });
+    console.log(this.state.customHeroesArr);
+    this.setState({ customHeroesArr: this.state.customHeroesArr });
   };
 
   render() {
@@ -68,7 +90,7 @@ class FormPage extends React.Component<object, IForm> {
               <label>Hero Attribute : </label>
               <select ref={this.selectInput}>
                 <option value="Agility">Agility</option>
-                <option value="Stength">Stength</option>
+                <option value="Strength">Strength</option>
                 <option value="Intelligence">Intelligence</option>
               </select>
             </div>
@@ -86,6 +108,36 @@ class FormPage extends React.Component<object, IForm> {
                 {' '}
                 <img src={meleeIco} alt="meleeIco" /> Melee
               </span>
+            </div>
+            <div>
+              <label>
+                {' '}
+                Role :
+                <input
+                  className="input_radio"
+                  type="radio"
+                  name="role"
+                  value="Carry"
+                  onChange={(event) => this.handleRadioChange(event)}
+                />
+                <label>Carry</label>
+                <input
+                  className="input_radio"
+                  type="radio"
+                  name="role"
+                  value="Mid"
+                  onChange={(event) => this.handleRadioChange(event)}
+                />
+                <label>Mid</label>
+                <input
+                  className="input_radio"
+                  type="radio"
+                  name="role"
+                  value="Support"
+                  onChange={(event) => this.handleRadioChange(event)}
+                />
+                <label>Support</label>
+              </label>
             </div>
             <div className="form__date">
               <label>Date of creation : </label>
@@ -106,6 +158,19 @@ class FormPage extends React.Component<object, IForm> {
               onClick={() => this.showResult()}
             />
           </form>
+        </div>
+        <div className="cards">
+          {this.state.customHeroesArr.map((card) => (
+            <CustomCard
+              key={card.heroName}
+              heroName={card.heroName}
+              heroImage={card.heroImage}
+              heroAttribute={card.heroAttribute}
+              heroTypeAttack={card.heroTypeAttack}
+              heroRole={card.heroRole}
+              heroDate={card.heroDate}
+            />
+          ))}
         </div>
       </div>
     );
