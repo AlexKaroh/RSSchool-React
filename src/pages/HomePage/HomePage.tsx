@@ -29,6 +29,20 @@ class Home extends React.Component {
     this.setState({ searchValue });
   };
 
+  componentDidMount(): void {
+    let query = localStorage.getItem('Search Value');
+    if (query === null) query = '';
+    this.setState({ query });
+  }
+
+  componentWillUnmount(): void {
+    if (this.state.searchValue === '') {
+      localStorage.removeItem('Search Value');
+    } else {
+      localStorage.setItem('Search Value', this.state.searchValue);
+    }
+  }
+
   render() {
     return (
       <div className="home">
