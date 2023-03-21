@@ -36,11 +36,7 @@ class Home extends React.Component {
   }
 
   componentWillUnmount(): void {
-    if (this.state.searchValue === '') {
-      localStorage.removeItem('Search Value');
-    } else {
-      localStorage.setItem('Search Value', this.state.searchValue);
-    }
+    localStorage.setItem('Search Value', this.state.searchValue);
   }
 
   render() {
