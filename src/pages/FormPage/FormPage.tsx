@@ -40,6 +40,8 @@ class FormPage extends React.Component<object, IForm> {
   imageInput = React.createRef<HTMLInputElement>();
   agreeInput = React.createRef<HTMLInputElement>();
 
+  currentDate = new Date();
+
   handleImageUpload(event: IEvent<HTMLInputElement>) {
     const file = event.target.files![0];
     const reader = new FileReader();
@@ -74,12 +76,20 @@ class FormPage extends React.Component<object, IForm> {
     this.setState({ agree: flag });
   }
 
-  selectedDateVal = this.dateInput.current?.value;
-  selectedDate = new Date(this.selectedDateVal as unknown as Date);
-  currentDate = new Date();
+  dateValidation = () => {
+    const selectedDateVal = this.dateInput.current?.value;
+    const selectedDate = new Date(selectedDateVal as unknown as Date);
 
-  valuesValidation = () => {
-    //Валидация имени (text)
+    if (selectedDate.getTime() <= this.currentDate.getTime()) {
+      this.setState({ dateFormDirty: true });
+    } else this.setState({ dateFormDirty: false });
+
+    if (selectedDateVal === '') {
+      this.setState({ dateFormEmpty: true });
+    } else this.setState({ dateFormEmpty: false });
+  };
+
+  nameValidation = () => {
     if (!this.textInput.current?.value.match(/^[A-Z][a-z]*$/)) {
       this.setState({ nameFromDirty: true, nameFromEmpty: false });
     } else this.setState({ nameFromDirty: false });
@@ -87,43 +97,30 @@ class FormPage extends React.Component<object, IForm> {
     if (this.textInput.current?.value === '') {
       this.setState({ nameFromEmpty: true, nameFromDirty: false });
     } else this.setState({ nameFromEmpty: false });
-    //Валидация атрибута (select)
-    if (this.selectInput.current?.value === '') {
-      this.setState({ attributeFromDirty: true });
-    } else this.setState({ attributeFromDirty: false });
-    // Валидация роли (radio-switcher)
-    if (this.state.role === '') {
-      this.setState({ roleFormDirty: true });
-    } else this.setState({ roleFormDirty: false });
-    // Валидация даты (date)
-    if (this.selectedDate.getTime() <= this.currentDate.getTime()) {
-      this.setState({ dateFormDirty: true });
-    } else this.setState({ dateFormDirty: false });
+  };
 
-    if (this.selectedDateVal === '') {
-      this.setState({ dateFormEmpty: true });
-    } else this.setState({ dateFormEmpty: false });
-
-    // Валидация наличия согласия (checkbox)
-
-    if (this.state.agree) {
-      this.setState({ acceptFormDirty: false });
-    } else this.setState({ acceptFormDirty: true });
-
-    // Валидация наличия картинки (file upload)
-
-    if (this.state.imageUrl === '') {
-      this.setState({ imageFormDirty: true });
-    } else this.setState({ imageFormDirty: false });
+  valuesValidation = () => {
+    this.dateValidation();
+    this.nameValidation();
+    this.setState({
+      attributeFromDirty: this.selectInput.current?.value === '',
+      roleFormDirty: this.state.role === '',
+      acceptFormDirty: !this.state.agree,
+      imageFormDirty: this.state.imageUrl === '' ? true : false,
+    });
   };
 
   checkValidation = () => {
+    const selectedDateVal = this.dateInput.current?.value;
+    const selectedDate = new Date(selectedDateVal as unknown as Date);
+
+    this.valuesValidation();
     // Разрешение на создание карточки
     if (
       !this.state.agree ||
       !this.state.imageUrl ||
-      !this.selectedDateVal ||
-      this.selectedDate.getTime() <= this.currentDate.getTime() ||
+      !selectedDateVal ||
+      selectedDate.getTime() <= this.currentDate.getTime() ||
       !this.state.role ||
       !this.selectInput.current?.value ||
       !this.textInput.current?.value.match(/^[A-Z][a-z]*$/)
@@ -134,22 +131,15 @@ class FormPage extends React.Component<object, IForm> {
   };
 
   showResult = () => {
-    const heroName = this.textInput.current?.value;
-    const heroAttribute = this.selectInput.current?.value;
-    const heroTypeAttack = this.state.typeAttack;
-    const heroDate = this.dateInput.current?.value;
-    const heroAgree = this.state.agree;
-    const heroImage = this.state.imageUrl;
-    const heroRole = this.state.role;
     if (this.checkValidation()) {
       (this.state.customHeroesArr as [object]).push({
-        heroName: heroName,
-        heroAttribute: heroAttribute,
-        heroTypeAttack: heroTypeAttack,
-        heroDate: heroDate,
-        heroAgree: heroAgree,
-        heroImage: heroImage,
-        heroRole: heroRole,
+        heroName: this.textInput.current?.value,
+        heroAttribute: this.selectInput.current?.value,
+        heroTypeAttack: this.state.typeAttack,
+        heroDate: this.dateInput.current?.value,
+        heroAgree: this.state.agree,
+        heroImage: this.state.imageUrl,
+        heroRole: this.state.role,
         id: this.state.customHeroesArr.length,
       });
       console.log(this.state.customHeroesArr);
