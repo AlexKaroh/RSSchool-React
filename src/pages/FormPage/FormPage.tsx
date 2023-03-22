@@ -24,6 +24,13 @@ class FormPage extends React.Component<object, IForm> {
   selectInput = React.createRef<HTMLSelectElement>();
   dateInput = React.createRef<HTMLInputElement>();
 
+  radioFirstInput = React.createRef<HTMLInputElement>();
+  radioSecondInput = React.createRef<HTMLInputElement>();
+  radioThirdInput = React.createRef<HTMLInputElement>();
+
+  imageInput = React.createRef<HTMLInputElement>();
+  agreeInput = React.createRef<HTMLInputElement>();
+
   handleImageUpload(event: IEvent<HTMLInputElement>) {
     const file = event.target.files![0];
     const reader = new FileReader();
@@ -37,8 +44,14 @@ class FormPage extends React.Component<object, IForm> {
     reader.readAsDataURL(file);
   }
 
-  handleRadioChange(event: IEvent<HTMLInputElement>) {
-    this.setState({ role: event.target.value });
+  handleRadioChange() {
+    const { radioFirstInput, radioSecondInput, radioThirdInput } = this;
+    const role = radioFirstInput.current?.checked
+      ? radioFirstInput.current.value
+      : radioSecondInput.current?.checked
+      ? radioSecondInput.current.value
+      : radioThirdInput.current?.value;
+    this.setState({ role });
   }
 
   handleClickTypeAttack() {
@@ -48,9 +61,16 @@ class FormPage extends React.Component<object, IForm> {
   }
 
   handleClickAgree() {
-    this.setState((prevState) => ({
-      agree: !prevState.agree,
-    }));
+    let flag = this.agreeInput.current?.checked;
+    switch (flag) {
+      case false:
+        flag = true;
+        break;
+      case true:
+        flag = false;
+        break;
+    }
+    console.log(this.agreeInput.current?.checked);
   }
 
   showResult = () => {
@@ -116,27 +136,30 @@ class FormPage extends React.Component<object, IForm> {
                 {' '}
                 Role :
                 <input
+                  ref={this.radioFirstInput}
                   className="input_radio"
                   type="radio"
                   name="role"
                   value="Carry"
-                  onChange={(event) => this.handleRadioChange(event)}
+                  onChange={() => this.handleRadioChange()}
                 />
                 <label>Carry</label>
                 <input
+                  ref={this.radioSecondInput}
                   className="input_radio"
                   type="radio"
                   name="role"
                   value="Mid"
-                  onChange={(event) => this.handleRadioChange(event)}
+                  onChange={() => this.handleRadioChange()}
                 />
                 <label>Mid</label>
                 <input
+                  ref={this.radioThirdInput}
                   className="input_radio"
                   type="radio"
                   name="role"
                   value="Support"
-                  onChange={(event) => this.handleRadioChange(event)}
+                  onChange={() => this.handleRadioChange()}
                 />
                 <label>Support</label>
               </label>
@@ -147,11 +170,20 @@ class FormPage extends React.Component<object, IForm> {
             </div>
             <div className="form__file">
               <label>Hero image </label>
-              <input type="file" accept="image/png, image/jpeg" onChange={this.handleImageUpload} />
+              <input
+                type="file"
+                accept="image/png, image/jpeg"
+                ref={this.imageInput.current?.value}
+                onChange={this.handleImageUpload}
+              />
             </div>
             <div className="form__checkbox padding">
               <label>I consent to use of my data</label>
-              <input type="checkbox" onClick={() => this.handleClickAgree()} />
+              <input
+                type="checkbox"
+                onClick={() => this.handleClickAgree()}
+                ref={this.agreeInput}
+              />
             </div>
             <input
               type="button"

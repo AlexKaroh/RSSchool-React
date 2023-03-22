@@ -2,7 +2,7 @@ export default interface IForm {
   typeAttack: boolean;
   agree: boolean;
   imageUrl: string | ArrayBuffer | null | undefined;
-  role: string;
+  role: string | undefined;
   id?: number;
   customHeroesArr:
     | [
