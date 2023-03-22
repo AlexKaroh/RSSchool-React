@@ -7,8 +7,10 @@ import IEvent from '../../interfaces/IEvent';
 import CustomCard from '../../components/CustomCard/CustomCard';
 
 class FormPage extends React.Component<object, IForm> {
+  formRef: React.RefObject<HTMLFormElement>;
   constructor(props: object) {
     super(props);
+    this.formRef = React.createRef();
     this.handleClickTypeAttack = this.handleClickTypeAttack.bind(this);
     this.handleImageUpload = this.handleImageUpload.bind(this);
     this.state = {
@@ -99,7 +101,7 @@ class FormPage extends React.Component<object, IForm> {
     } else this.setState({ nameFromEmpty: false });
   };
 
-  valuesValidation = () => {
+  validateAllValues = () => {
     this.dateValidation();
     this.nameValidation();
     this.setState({
@@ -114,7 +116,7 @@ class FormPage extends React.Component<object, IForm> {
     const selectedDateVal = this.dateInput.current?.value;
     const selectedDate = new Date(selectedDateVal as unknown as Date);
 
-    this.valuesValidation();
+    this.validateAllValues();
     // Разрешение на создание карточки
     if (
       !this.state.agree ||
@@ -128,6 +130,11 @@ class FormPage extends React.Component<object, IForm> {
       return false;
     }
     return true;
+  };
+
+  zeroing = () => {
+    this.formRef.current?.reset();
+    this.setState({ imageUrl: '', agree: false, role: '' });
   };
 
   showResult = () => {
@@ -144,6 +151,7 @@ class FormPage extends React.Component<object, IForm> {
       });
       console.log(this.state.customHeroesArr);
       this.setState({ customHeroesArr: this.state.customHeroesArr });
+      this.zeroing();
     } else alert('dont agree');
   };
 
@@ -151,7 +159,7 @@ class FormPage extends React.Component<object, IForm> {
     return (
       <div className="FormPage">
         <div className="form__container">
-          <form className="form" onSubmit={() => console.log('submit')}>
+          <form className="form" onSubmit={this.zeroing.bind(this)} ref={this.formRef}>
             <div className="form__flex padding">
               <label className="form__flex_font label__margin">Hero Name : </label>
               <input type="text" ref={this.textInput} className="input_text label__margin" />
