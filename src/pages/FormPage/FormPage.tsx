@@ -17,6 +17,15 @@ class FormPage extends React.Component<object, IForm> {
       imageUrl: '',
       role: '',
       customHeroesArr: [],
+      nameFromDirty: false,
+      nameFromEmpty: false,
+      attributeFromDirty: false,
+      roleFormDirty: false,
+      dateFormDirty: false,
+      dateFormEmpty: false,
+      imageFormDirty: false,
+      acceptFormDirty: false,
+      formValid: false,
     };
   }
 
@@ -61,22 +70,70 @@ class FormPage extends React.Component<object, IForm> {
   }
 
   handleClickAgree() {
-    let flag = this.agreeInput.current?.checked;
-    switch (flag) {
-      case false:
-        flag = true;
-        break;
-      case true:
-        flag = false;
-        break;
-    }
-    console.log(this.agreeInput.current?.checked);
+    const flag = this.agreeInput.current?.checked;
+    this.setState({ agree: flag });
   }
 
+  selectedDateVal = this.dateInput.current?.value;
+  selectedDate = new Date(this.selectedDateVal as unknown as Date);
+  currentDate = new Date();
+
+  valuesValidation = () => {
+    //Валидация имени (text)
+    if (!this.textInput.current?.value.match(/^[A-Z][a-z]*$/)) {
+      this.setState({ nameFromDirty: true, nameFromEmpty: false });
+    } else this.setState({ nameFromDirty: false });
+
+    if (this.textInput.current?.value === '') {
+      this.setState({ nameFromEmpty: true, nameFromDirty: false });
+    } else this.setState({ nameFromEmpty: false });
+    //Валидация атрибута (select)
+    if (this.selectInput.current?.value === '') {
+      this.setState({ attributeFromDirty: true });
+    } else this.setState({ attributeFromDirty: false });
+    // Валидация роли (radio-switcher)
+    if (this.state.role === '') {
+      this.setState({ roleFormDirty: true });
+    } else this.setState({ roleFormDirty: false });
+    // Валидация даты (date)
+    if (this.selectedDate.getTime() <= this.currentDate.getTime()) {
+      this.setState({ dateFormDirty: true });
+    } else this.setState({ dateFormDirty: false });
+
+    if (this.selectedDateVal === '') {
+      this.setState({ dateFormEmpty: true });
+    } else this.setState({ dateFormEmpty: false });
+
+    // Валидация наличия согласия (checkbox)
+
+    if (this.state.agree) {
+      this.setState({ acceptFormDirty: false });
+    } else this.setState({ acceptFormDirty: true });
+
+    // Валидация наличия картинки (file upload)
+
+    if (this.state.imageUrl === '') {
+      this.setState({ imageFormDirty: true });
+    } else this.setState({ imageFormDirty: false });
+  };
+
+  checkValidation = () => {
+    // Разрешение на создание карточки
+    if (
+      !this.state.agree ||
+      !this.state.imageUrl ||
+      !this.selectedDateVal ||
+      this.selectedDate.getTime() <= this.currentDate.getTime() ||
+      !this.state.role ||
+      !this.selectInput.current?.value ||
+      !this.textInput.current?.value.match(/^[A-Z][a-z]*$/)
+    ) {
+      return false;
+    }
+    return true;
+  };
+
   showResult = () => {
-    const date = new Date();
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const currentDate = date.toLocaleDateString('en-US');
     const heroName = this.textInput.current?.value;
     const heroAttribute = this.selectInput.current?.value;
     const heroTypeAttack = this.state.typeAttack;
@@ -84,18 +141,20 @@ class FormPage extends React.Component<object, IForm> {
     const heroAgree = this.state.agree;
     const heroImage = this.state.imageUrl;
     const heroRole = this.state.role;
-    (this.state.customHeroesArr as [object]).push({
-      heroName: heroName,
-      heroAttribute: heroAttribute,
-      heroTypeAttack: heroTypeAttack,
-      heroDate: heroDate,
-      heroAgree: heroAgree,
-      heroImage: heroImage,
-      heroRole: heroRole,
-      id: this.state.customHeroesArr.length,
-    });
-    console.log(this.state.customHeroesArr);
-    this.setState({ customHeroesArr: this.state.customHeroesArr });
+    if (this.checkValidation()) {
+      (this.state.customHeroesArr as [object]).push({
+        heroName: heroName,
+        heroAttribute: heroAttribute,
+        heroTypeAttack: heroTypeAttack,
+        heroDate: heroDate,
+        heroAgree: heroAgree,
+        heroImage: heroImage,
+        heroRole: heroRole,
+        id: this.state.customHeroesArr.length,
+      });
+      console.log(this.state.customHeroesArr);
+      this.setState({ customHeroesArr: this.state.customHeroesArr });
+    } else alert('dont agree');
   };
 
   render() {
@@ -103,18 +162,27 @@ class FormPage extends React.Component<object, IForm> {
       <div className="FormPage">
         <div className="form__container">
           <form className="form" onSubmit={() => console.log('submit')}>
-            <div className="form__text padding">
-              <label>Hero Name : </label>
-              <input type="text" ref={this.textInput} className="input_text" />
+            <div className="form__flex padding">
+              <label className="form__flex_font label__margin">Hero Name : </label>
+              <input type="text" ref={this.textInput} className="input_text label__margin" />
+              {this.state.nameFromEmpty && <div className="wrong">Field mustn`t be empty</div>}
+              {this.state.nameFromDirty && (
+                <div className="wrong">
+                  Field mustn`t contain numbers, symbols and start with a capital letter
+                </div>
+              )}
             </div>
-            <div className="form__select padding">
-              <label>Hero Attribute : </label>
-              <select ref={this.selectInput}>
+            <div className="form__flex padding">
+              <label className="form__flex_font">Hero Attribute : </label>
+              <select ref={this.selectInput} className="input__margin">
                 <option value="">Select Attribute</option>
                 <option value="Agility">Agility</option>
                 <option value="Strength">Strength</option>
                 <option value="Intelligence">Intelligence</option>
               </select>
+              {this.state.attributeFromDirty && (
+                <div className="wrong">You must select an attribute</div>
+              )}
             </div>
             <div className="form__switcher padding">
               <label>Type of attack : </label>
@@ -131,8 +199,8 @@ class FormPage extends React.Component<object, IForm> {
                 <img src={meleeIco} alt="meleeIco" /> Melee
               </span>
             </div>
-            <div className="form__radio padding">
-              <label>
+            <div className="form__flex padding">
+              <label className="input__margin">
                 {' '}
                 Role :
                 <input
@@ -163,12 +231,17 @@ class FormPage extends React.Component<object, IForm> {
                 />
                 <label>Support</label>
               </label>
+              {this.state.roleFormDirty && <div className="wrong">You must select role</div>}
             </div>
-            <div className="form__date padding">
-              <label>Date of creation : </label>
-              <input type="date" ref={this.dateInput} />
+            <div className="form__flex padding">
+              <label>Release date : </label>
+              <input type="date" ref={this.dateInput} className="input__margin" />
+              {this.state.dateFormDirty && (
+                <div className="wrong">You must select the future date</div>
+              )}
+              {this.state.dateFormEmpty && <div className="wrong">Date field mustn`t be epmty</div>}
             </div>
-            <div className="form__file">
+            <div className="form__flex">
               <label>Hero image </label>
               <input
                 type="file"
@@ -176,6 +249,7 @@ class FormPage extends React.Component<object, IForm> {
                 ref={this.imageInput.current?.value}
                 onChange={this.handleImageUpload}
               />
+              {this.state.imageFormDirty && <div className="wrong">You must to upload image</div>}
             </div>
             <div className="form__checkbox padding">
               <label>I consent to use of my data</label>
@@ -184,6 +258,7 @@ class FormPage extends React.Component<object, IForm> {
                 onClick={() => this.handleClickAgree()}
                 ref={this.agreeInput}
               />
+              {this.state.acceptFormDirty && <div className="wrong">You must to agree</div>}
             </div>
             <input
               type="button"

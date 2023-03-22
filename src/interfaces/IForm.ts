@@ -1,6 +1,6 @@
 export default interface IForm {
   typeAttack: boolean;
-  agree: boolean;
+  agree: boolean | undefined;
   imageUrl: string | ArrayBuffer | null | undefined;
   role: string | undefined;
   id?: number;
@@ -18,4 +18,13 @@ export default interface IForm {
         }
       ]
     | [];
+  nameFromDirty: boolean;
+  nameFromEmpty: boolean;
+  attributeFromDirty: boolean;
+  roleFormDirty: boolean;
+  dateFormDirty: boolean;
+  dateFormEmpty: boolean;
+  imageFormDirty: boolean;
+  acceptFormDirty: boolean | undefined;
+  formValid: boolean;
 }

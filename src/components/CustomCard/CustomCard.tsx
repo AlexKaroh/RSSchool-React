@@ -44,7 +44,7 @@ class CustomCard extends React.Component<ICustomCardProps> {
           />
           <div className="card__hero_role">{heroRole}</div>
         </div>
-        <div className="card__hero_date">Hero Created: {heroDate}</div>
+        <div className="card__hero_date">Release date: {heroDate}</div>
       </div>
     );
   }

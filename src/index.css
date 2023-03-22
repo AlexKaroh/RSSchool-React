@@ -26,9 +26,9 @@ body {
 }
 
 input[type=text] {
-  padding-left: 10px;
+  padding: 0 0 2px 5px;
   font-family: 'Reaver Regular';
-  font-size: 18px;
+  font-size: 16px;
   color: whitesmoke;
   border-radius: 2px;
 }
