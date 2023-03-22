@@ -117,7 +117,7 @@ class FormPage extends React.Component<object, IForm> {
     const selectedDate = new Date(selectedDateVal as unknown as Date);
 
     this.validateAllValues();
-    // Разрешение на создание карточки
+
     if (
       !this.state.agree ||
       !this.state.imageUrl ||
@@ -149,7 +149,6 @@ class FormPage extends React.Component<object, IForm> {
         heroRole: this.state.role,
         id: this.state.customHeroesArr.length,
       });
-      console.log(this.state.customHeroesArr);
       this.setState({ customHeroesArr: this.state.customHeroesArr });
       this.zeroing();
     } else alert('dont agree');
