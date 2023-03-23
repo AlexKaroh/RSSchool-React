@@ -3,7 +3,6 @@ import './FormPage.css';
 import meleeIco from '../../assets/melee.svg';
 import rangedIco from '../../assets/ranged.svg';
 import IForm from 'interfaces/IForm';
-import IEvent from '../../interfaces/IEvent';
 import CustomCard from '../../components/CustomCard/CustomCard';
 
 class FormPage extends React.Component<object, IForm> {
@@ -44,17 +43,12 @@ class FormPage extends React.Component<object, IForm> {
 
   currentDate = new Date();
 
-  handleImageUpload(event: IEvent<HTMLInputElement>) {
-    const file = event.target.files![0];
-    const reader = new FileReader();
-
-    reader.onload = (event) => {
-      this.setState({
-        imageUrl: event.target?.result,
-      });
-    };
-
-    reader.readAsDataURL(file);
+  handleImageUpload() {
+    const file = this.imageInput.current?.files![0];
+    const url = URL.createObjectURL(file as Blob | MediaSource);
+    this.setState({
+      imageUrl: url,
+    });
   }
 
   handleRadioChange() {
@@ -243,7 +237,7 @@ class FormPage extends React.Component<object, IForm> {
               <input
                 type="file"
                 accept="image/png, image/jpeg"
-                ref={this.imageInput.current?.value}
+                ref={this.imageInput}
                 onChange={this.handleImageUpload}
               />
               {this.state.imageFormDirty && <div className="wrong">You must to upload image</div>}
