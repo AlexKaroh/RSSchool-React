@@ -2,7 +2,6 @@
   min-height: calc(100vh - 118px);
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   align-items: center;
 }
 
@@ -172,4 +171,17 @@ input[type="file" i] {
   align-items: center;
   font-size: 12px;
   color: #e3796a;
+}
+.animation {
+  transition: opacity 4s ease-in-out;
+  opacity: 0;
+  margin: 10px 0 0 0;
+  width: 400px;
+  height: 40px;
+}
+
+.popup_container {
+  margin: 10px 0 0 0;
+  width: 400px;
+  height: 40px;
 }

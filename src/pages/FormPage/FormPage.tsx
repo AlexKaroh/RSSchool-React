@@ -4,6 +4,7 @@ import meleeIco from '../../assets/melee.svg';
 import rangedIco from '../../assets/ranged.svg';
 import IForm from 'interfaces/IForm';
 import CustomCard from '../../components/CustomCard/CustomCard';
+import PopUp from '../../components/PopUp/PopUp';
 
 class FormPage extends React.Component<object, IForm> {
   formRef: React.RefObject<HTMLFormElement>;
@@ -26,7 +27,7 @@ class FormPage extends React.Component<object, IForm> {
       dateFormEmpty: false,
       imageFormDirty: false,
       acceptFormDirty: false,
-      formValid: false,
+      showForm: false,
     };
   }
 
@@ -121,9 +122,9 @@ class FormPage extends React.Component<object, IForm> {
       !this.selectInput.current?.value ||
       !this.textInput.current?.value.match(/^[A-Z][a-z]*$/)
     ) {
-      return false;
+      return;
     }
-    return true;
+    this.showResult();
   };
 
   zeroing = () => {
@@ -131,26 +132,35 @@ class FormPage extends React.Component<object, IForm> {
     this.setState({ imageUrl: '', agree: false, role: '' });
   };
 
+  showMessage = () => {
+    this.setState({ showForm: true });
+    setTimeout(() => {
+      this.setState({ showForm: false });
+    }, 4000);
+  };
+
   showResult = () => {
-    if (this.checkValidation()) {
-      (this.state.customHeroesArr as [object]).push({
-        heroName: this.textInput.current?.value,
-        heroAttribute: this.selectInput.current?.value,
-        heroTypeAttack: this.state.typeAttack,
-        heroDate: this.dateInput.current?.value,
-        heroAgree: this.state.agree,
-        heroImage: this.state.imageUrl,
-        heroRole: this.state.role,
-        id: this.state.customHeroesArr.length,
-      });
-      this.setState({ customHeroesArr: this.state.customHeroesArr });
-      this.zeroing();
-    } else alert('dont agree');
+    (this.state.customHeroesArr as [object]).push({
+      heroName: this.textInput.current?.value,
+      heroAttribute: this.selectInput.current?.value,
+      heroTypeAttack: this.state.typeAttack,
+      heroDate: this.dateInput.current?.value,
+      heroAgree: this.state.agree,
+      heroImage: this.state.imageUrl,
+      heroRole: this.state.role,
+      id: this.state.customHeroesArr.length,
+    });
+    this.setState({ customHeroesArr: this.state.customHeroesArr });
+    this.showMessage();
+    this.zeroing();
   };
 
   render() {
     return (
       <div className="FormPage">
+        <div className={this.state.showForm ? 'animation' : 'popup_container'}>
+          {this.state.showForm && <PopUp />}
+        </div>
         <div className="form__container">
           <form className="form" onSubmit={this.zeroing.bind(this)} ref={this.formRef}>
             <div className="form__flex padding">
@@ -255,7 +265,7 @@ class FormPage extends React.Component<object, IForm> {
               type="button"
               value="Create Hero"
               className="form__submit"
-              onClick={() => this.showResult()}
+              onClick={() => this.checkValidation()}
             />
           </form>
         </div>

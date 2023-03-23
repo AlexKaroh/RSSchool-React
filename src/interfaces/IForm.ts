@@ -26,5 +26,5 @@ export default interface IForm {
   dateFormEmpty: boolean;
   imageFormDirty: boolean;
   acceptFormDirty: boolean | undefined;
-  formValid: boolean;
+  showForm: boolean;
 }
