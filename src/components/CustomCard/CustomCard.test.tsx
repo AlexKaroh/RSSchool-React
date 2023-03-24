@@ -33,26 +33,20 @@ describe('CustomCard', () => {
   });
 
   it('return attribute Agility', () => {
-    const { container } = render(<CustomCard {...props} />);
-    const attributeImage = container.querySelector(
-      '.card__hero_attribute_image'
-    ) as HTMLImageElement;
+    render(<CustomCard {...props} />);
+    const attributeImage = screen.getByAltText('hero_attribute') as HTMLImageElement;
     expect(attributeImage.src).toContain('hero_agility.png');
   });
 
   it('return attribute Strength', () => {
-    const { container } = render(<CustomCard {...props} heroAttribute="Strength" />);
-    const attributeImage = container.querySelector(
-      '.card__hero_attribute_image'
-    ) as HTMLImageElement;
+    render(<CustomCard {...props} heroAttribute="Strength" />);
+    const attributeImage = screen.getByAltText('hero_attribute') as HTMLImageElement;
     expect(attributeImage.src).toContain('hero_strength.png');
   });
 
   it('return attribute Intelligence', () => {
-    const { container } = render(<CustomCard {...props} heroAttribute="Intelligence" />);
-    const attributeImage = container.querySelector(
-      '.card__hero_attribute_image'
-    ) as HTMLImageElement;
+    render(<CustomCard {...props} heroAttribute="Intelligence" />);
+    const attributeImage = screen.getByAltText('hero_attribute') as HTMLImageElement;
     expect(attributeImage.src).toContain('hero_intelligence.png');
   });
 
