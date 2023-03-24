@@ -192,7 +192,11 @@ class FormPage extends React.Component<object, IForm> {
                 <img src={rangedIco} alt="rangedIco" /> Ranged
               </span>
               <label className="switch">
-                <input type="checkbox" onClick={() => this.handleClickTypeAttack()} />
+                <input
+                  type="checkbox"
+                  onClick={() => this.handleClickTypeAttack()}
+                  data-testid="typeAttackButton"
+                />
                 <span className="slider round"></span>
               </label>
               <span>
@@ -209,6 +213,7 @@ class FormPage extends React.Component<object, IForm> {
                   className="input_radio"
                   type="radio"
                   name="role"
+                  data-testid="Carry"
                   value="Carry"
                   onChange={() => this.handleRadioChange()}
                 />
@@ -218,6 +223,7 @@ class FormPage extends React.Component<object, IForm> {
                   className="input_radio"
                   type="radio"
                   name="role"
+                  data-testid="Mid"
                   value="Mid"
                   onChange={() => this.handleRadioChange()}
                 />
@@ -227,6 +233,7 @@ class FormPage extends React.Component<object, IForm> {
                   className="input_radio"
                   type="radio"
                   name="role"
+                  data-testid="Support"
                   value="Support"
                   onChange={() => this.handleRadioChange()}
                 />
@@ -265,6 +272,7 @@ class FormPage extends React.Component<object, IForm> {
               type="button"
               value="Create Hero"
               className="form__submit"
+              data-testid="submit-button"
               onClick={() => this.checkValidation()}
             />
           </form>
