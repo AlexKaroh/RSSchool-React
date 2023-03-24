@@ -165,7 +165,12 @@ class FormPage extends React.Component<object, IForm> {
           <form className="form" onSubmit={this.zeroing.bind(this)} ref={this.formRef}>
             <div className="form__flex padding">
               <label className="form__flex_font label__margin">Hero Name : </label>
-              <input type="text" ref={this.textInput} className="input_text label__margin" />
+              <input
+                type="text"
+                ref={this.textInput}
+                data-testid="name_input"
+                className="input_text label__margin"
+              />
               {this.state.nameFromEmpty && <div className="wrong">Field mustn`t be empty</div>}
               {this.state.nameFromDirty && (
                 <div className="wrong">
@@ -243,7 +248,12 @@ class FormPage extends React.Component<object, IForm> {
             </div>
             <div className="form__flex padding">
               <label>Release date : </label>
-              <input type="date" ref={this.dateInput} className="input__margin" />
+              <input
+                type="date"
+                ref={this.dateInput}
+                data-testid="date-button"
+                className="input__margin"
+              />
               {this.state.dateFormDirty && (
                 <div className="wrong">You must select the future date</div>
               )}
