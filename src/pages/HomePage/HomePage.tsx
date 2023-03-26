@@ -32,6 +32,7 @@ const Home = () => {
         <div className="seacrh__form">
           <input
             value={searchValue}
+            data-testid="search_input"
             onChange={(e) => handleChange(e.target.value)}
             className="seacrh__bar"
             type="text"
