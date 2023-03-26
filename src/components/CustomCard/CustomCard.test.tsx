@@ -10,6 +10,7 @@ describe('CustomCard', () => {
     heroDate: '2222-22-22',
     heroAttribute: 'Agility',
     heroTypeAttack: true,
+    id: 1,
   };
 
   it('render hero name', () => {
@@ -64,6 +65,7 @@ describe('CustomCard', () => {
       heroDate: '2022-01-01',
       heroAttribute: 'Agility',
       heroTypeAttack: false,
+      id: 1,
     };
     const { getByText } = render(<CustomCard {...props} />);
     const heroAttack = getByText('Melee');

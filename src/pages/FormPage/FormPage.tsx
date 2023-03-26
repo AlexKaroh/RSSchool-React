@@ -1,308 +1,281 @@
-import React from 'react';
+import React, { useRef, useState } from 'react';
 import './FormPage.css';
 import meleeIco from '../../assets/melee.svg';
 import rangedIco from '../../assets/ranged.svg';
-import IForm from 'interfaces/IForm';
+import IForm from '../../interfaces/IForm';
 import CustomCard from '../../components/CustomCard/CustomCard';
+import CustomCardProps from '../../interfaces/ICustomCardProps';
 import PopUp from '../../components/PopUp/PopUp';
 
-class FormPage extends React.Component<object, IForm> {
-  formRef: React.RefObject<HTMLFormElement>;
-  constructor(props: object) {
-    super(props);
-    this.formRef = React.createRef();
-    this.handleClickTypeAttack = this.handleClickTypeAttack.bind(this);
-    this.handleImageUpload = this.handleImageUpload.bind(this);
-    this.state = {
-      typeAttack: true,
-      agree: false,
-      imageUrl: '',
-      role: '',
-      customHeroesArr: [],
-      nameFromDirty: false,
-      nameFromEmpty: false,
-      attributeFromDirty: false,
-      roleFormDirty: false,
-      dateFormDirty: false,
-      dateFormEmpty: false,
-      imageFormDirty: false,
-      acceptFormDirty: false,
-      showForm: false,
-    };
-  }
+const FormPage: React.FC<IForm> = () => {
+  const [typeAttack, setTypeAttack] = useState(true);
+  const [agree, setAgree] = useState(false);
+  const [imageUrl, setImageUrl] = useState('');
+  const [role, setRole] = useState('');
+  const [customHeroesArr, setCustomHeroesArr] = useState<CustomCardProps[]>([]);
+  const [nameFromDirty, setNameFromDirty] = useState(false);
+  const [nameFromEmpty, setNameFromEmpty] = useState(false);
+  const [attributeFromDirty, setAttributeFromDirty] = useState(false);
+  const [roleFormDirty, setRoleFormDirty] = useState(false);
+  const [dateFormDirty, setDateFormDirty] = useState(false);
+  const [dateFormEmpty, setDateFormEmpty] = useState(false);
+  const [imageFormDirty, setImageFormDirty] = useState(false);
+  const [acceptFormDirty, setAcceptFormDirty] = useState(false);
+  const [showForm, setShowForm] = useState(false);
 
-  textInput = React.createRef<HTMLInputElement>();
-  selectInput = React.createRef<HTMLSelectElement>();
-  dateInput = React.createRef<HTMLInputElement>();
+  const formRef = useRef<HTMLFormElement>(null);
+  const textInput = useRef<HTMLInputElement>(null);
+  const selectInput = useRef<HTMLSelectElement>(null);
+  const dateInput = useRef<HTMLInputElement>(null);
+  const radioFirstInput = useRef<HTMLInputElement>(null);
+  const radioSecondInput = useRef<HTMLInputElement>(null);
+  const radioThirdInput = useRef<HTMLInputElement>(null);
+  const imageInput = useRef<HTMLInputElement>(null);
+  const agreeInput = useRef<HTMLInputElement>(null);
+  const currentDate = new Date();
 
-  radioFirstInput = React.createRef<HTMLInputElement>();
-  radioSecondInput = React.createRef<HTMLInputElement>();
-  radioThirdInput = React.createRef<HTMLInputElement>();
-
-  imageInput = React.createRef<HTMLInputElement>();
-  agreeInput = React.createRef<HTMLInputElement>();
-
-  currentDate = new Date();
-
-  handleImageUpload() {
-    const file = this.imageInput.current?.files![0];
+  const handleImageUpload = () => {
+    const file = imageInput.current?.files![0];
     const url = URL.createObjectURL(file as Blob | MediaSource);
-    this.setState({
-      imageUrl: url,
-    });
-  }
+    setImageUrl(url);
+  };
 
-  handleRadioChange() {
-    const { radioFirstInput, radioSecondInput, radioThirdInput } = this;
+  const handleRadioChange = () => {
     const role = radioFirstInput.current?.checked
       ? radioFirstInput.current.value
       : radioSecondInput.current?.checked
       ? radioSecondInput.current.value
       : radioThirdInput.current?.value;
-    this.setState({ role });
-  }
+    setRole(role as string);
+  };
 
-  handleClickTypeAttack() {
-    this.setState((prevState) => ({
-      typeAttack: !prevState.typeAttack,
-    }));
-  }
+  const handleClickTypeAttack = () => {
+    setTypeAttack(!typeAttack);
+  };
 
-  handleClickAgree() {
-    const flag = this.agreeInput.current?.checked;
-    this.setState({ agree: flag });
-  }
+  const handleClickAgree = () => {
+    setAgree(agreeInput.current?.checked as boolean);
+  };
 
-  dateValidation = () => {
-    const selectedDateVal = this.dateInput.current?.value;
+  const dateValidation = () => {
+    const selectedDateVal = dateInput.current?.value;
     const selectedDate = new Date(selectedDateVal as unknown as Date);
 
-    if (selectedDate.getTime() <= this.currentDate.getTime()) {
-      this.setState({ dateFormDirty: true });
-    } else this.setState({ dateFormDirty: false });
+    if (selectedDate.getTime() <= currentDate.getTime()) {
+      setDateFormDirty(true);
+    } else setDateFormDirty(false);
 
     if (selectedDateVal === '') {
-      this.setState({ dateFormEmpty: true });
-    } else this.setState({ dateFormEmpty: false });
+      setDateFormEmpty(true);
+    } else setDateFormEmpty(false);
   };
 
-  nameValidation = () => {
-    if (!this.textInput.current?.value.match(/^[A-Z][a-z]*$/)) {
-      this.setState({ nameFromDirty: true, nameFromEmpty: false });
-    } else this.setState({ nameFromDirty: false });
+  const nameValidation = () => {
+    if (!textInput.current?.value.match(/^[A-Z][a-z]*$/)) {
+      setNameFromDirty(true);
+      setNameFromEmpty(false);
+    } else setNameFromDirty(false);
 
-    if (this.textInput.current?.value === '') {
-      this.setState({ nameFromEmpty: true, nameFromDirty: false });
-    } else this.setState({ nameFromEmpty: false });
+    if (textInput.current?.value === '') {
+      setNameFromDirty(false);
+      setNameFromEmpty(true);
+    } else setNameFromEmpty(false);
   };
 
-  validateAllValues = () => {
-    this.dateValidation();
-    this.nameValidation();
-    this.setState({
-      attributeFromDirty: this.selectInput.current?.value === '',
-      roleFormDirty: this.state.role === '',
-      acceptFormDirty: !this.state.agree,
-      imageFormDirty: this.state.imageUrl === '' ? true : false,
-    });
+  const validateAllValues = () => {
+    dateValidation();
+    nameValidation();
+    setAttributeFromDirty(selectInput.current?.value === '');
+    setRoleFormDirty(role === '');
+    setAcceptFormDirty(!agree);
+    setImageFormDirty(imageUrl === '' ? true : false);
   };
 
-  checkValidation = () => {
-    const selectedDateVal = this.dateInput.current?.value;
+  const checkValidation = () => {
+    const selectedDateVal = dateInput.current?.value;
     const selectedDate = new Date(selectedDateVal as unknown as Date);
 
-    this.validateAllValues();
+    validateAllValues();
 
     if (
-      !this.state.agree ||
-      !this.state.imageUrl ||
+      !agree ||
+      !imageUrl ||
       !selectedDateVal ||
-      selectedDate.getTime() <= this.currentDate.getTime() ||
-      !this.state.role ||
-      !this.selectInput.current?.value ||
-      !this.textInput.current?.value.match(/^[A-Z][a-z]*$/)
+      selectedDate.getTime() <= currentDate.getTime() ||
+      !role ||
+      !selectInput.current?.value ||
+      !textInput.current?.value.match(/^[A-Z][a-z]*$/)
     ) {
       return;
     }
-    this.showResult();
+    showResult();
   };
 
-  zeroing = () => {
-    this.formRef.current?.reset();
-    this.setState({ imageUrl: '', agree: false, role: '' });
+  const zeroing = () => {
+    formRef.current?.reset();
+    setImageUrl('');
+    setAgree(false);
+    setRole('');
   };
 
-  showMessage = () => {
-    this.setState({ showForm: true });
+  const showMessage = () => {
+    setShowForm(true);
     setTimeout(() => {
-      this.setState({ showForm: false });
+      setShowForm(false);
     }, 4000);
   };
 
-  showResult = () => {
-    (this.state.customHeroesArr as [object]).push({
-      heroName: this.textInput.current?.value,
-      heroAttribute: this.selectInput.current?.value,
-      heroTypeAttack: this.state.typeAttack,
-      heroDate: this.dateInput.current?.value,
-      heroAgree: this.state.agree,
-      heroImage: this.state.imageUrl,
-      heroRole: this.state.role,
-      id: this.state.customHeroesArr.length,
+  const showResult = () => {
+    customHeroesArr.push({
+      heroName: textInput.current?.value,
+      heroAttribute: selectInput.current?.value,
+      heroTypeAttack: typeAttack,
+      heroDate: dateInput.current?.value,
+      heroAgree: agree,
+      heroImage: imageUrl,
+      heroRole: role,
+      id: customHeroesArr.length,
     });
-    this.setState({ customHeroesArr: this.state.customHeroesArr });
-    this.showMessage();
-    this.zeroing();
+    setCustomHeroesArr(customHeroesArr);
+    showMessage();
+    zeroing();
   };
-
-  render() {
-    return (
-      <div className="FormPage">
-        <div className={this.state.showForm ? 'animation' : 'popup_container'}>
-          {this.state.showForm && <PopUp />}
-        </div>
-        <div className="form__container">
-          <form className="form" onSubmit={this.zeroing.bind(this)} ref={this.formRef}>
-            <div className="form__flex padding">
-              <label className="form__flex_font label__margin">Hero Name : </label>
-              <input
-                type="text"
-                ref={this.textInput}
-                data-testid="name_input"
-                className="input_text label__margin"
-              />
-              {this.state.nameFromEmpty && <div className="wrong">Field mustn`t be empty</div>}
-              {this.state.nameFromDirty && (
-                <div className="wrong">
-                  Field mustn`t contain numbers, symbols and start with a capital letter
-                </div>
-              )}
-            </div>
-            <div className="form__flex padding">
-              <label className="form__flex_font">Hero Attribute : </label>
-              <select ref={this.selectInput} className="input__margin">
-                <option value="">Select Attribute</option>
-                <option value="Agility">Agility</option>
-                <option value="Strength">Strength</option>
-                <option value="Intelligence">Intelligence</option>
-              </select>
-              {this.state.attributeFromDirty && (
-                <div className="wrong">You must select an attribute</div>
-              )}
-            </div>
-            <div className="form__switcher padding">
-              <label>Type of attack : </label>
-              <span>
-                {' '}
-                <img src={rangedIco} alt="rangedIco" /> Ranged
-              </span>
-              <label className="switch">
-                <input
-                  type="checkbox"
-                  onClick={() => this.handleClickTypeAttack()}
-                  data-testid="typeAttackButton"
-                />
-                <span className="slider round"></span>
-              </label>
-              <span>
-                {' '}
-                <img src={meleeIco} alt="meleeIco" /> Melee
-              </span>
-            </div>
-            <div className="form__flex padding">
-              <label className="input__margin">
-                {' '}
-                Role :
-                <input
-                  ref={this.radioFirstInput}
-                  className="input_radio"
-                  type="radio"
-                  name="role"
-                  data-testid="Carry"
-                  value="Carry"
-                  onChange={() => this.handleRadioChange()}
-                />
-                <label>Carry</label>
-                <input
-                  ref={this.radioSecondInput}
-                  className="input_radio"
-                  type="radio"
-                  name="role"
-                  data-testid="Mid"
-                  value="Mid"
-                  onChange={() => this.handleRadioChange()}
-                />
-                <label>Mid</label>
-                <input
-                  ref={this.radioThirdInput}
-                  className="input_radio"
-                  type="radio"
-                  name="role"
-                  data-testid="Support"
-                  value="Support"
-                  onChange={() => this.handleRadioChange()}
-                />
-                <label>Support</label>
-              </label>
-              {this.state.roleFormDirty && <div className="wrong">You must select role</div>}
-            </div>
-            <div className="form__flex padding">
-              <label>Release date : </label>
-              <input
-                type="date"
-                ref={this.dateInput}
-                data-testid="date-button"
-                className="input__margin"
-              />
-              {this.state.dateFormDirty && (
-                <div className="wrong">You must select the future date</div>
-              )}
-              {this.state.dateFormEmpty && <div className="wrong">Date field mustn`t be epmty</div>}
-            </div>
-            <div className="form__flex">
-              <label>Hero image </label>
-              <input
-                type="file"
-                accept="image/png, image/jpeg"
-                ref={this.imageInput}
-                onChange={this.handleImageUpload}
-              />
-              {this.state.imageFormDirty && <div className="wrong">You must to upload image</div>}
-            </div>
-            <div className="form__checkbox padding">
-              <label>I consent to use of my data</label>
+  return (
+    <div className="FormPage">
+      <div className={showForm ? 'animation' : 'popup_container'}>{showForm && <PopUp />}</div>
+      <div className="form__container">
+        <form className="form" onSubmit={zeroing.bind(this)} ref={formRef}>
+          <div className="form__flex padding">
+            <label className="form__flex_font label__margin">Hero Name : </label>
+            <input
+              type="text"
+              ref={textInput}
+              data-testid="name_input"
+              className="input_text label__margin"
+            />
+            {nameFromEmpty && <div className="wrong">Field mustn`t be empty</div>}
+            {nameFromDirty && (
+              <div className="wrong">
+                Field mustn`t contain numbers, symbols and start with a capital letter
+              </div>
+            )}
+          </div>
+          <div className="form__flex padding">
+            <label className="form__flex_font">Hero Attribute : </label>
+            <select ref={selectInput} className="input__margin">
+              <option value="">Select Attribute</option>
+              <option value="Agility">Agility</option>
+              <option value="Strength">Strength</option>
+              <option value="Intelligence">Intelligence</option>
+            </select>
+            {attributeFromDirty && <div className="wrong">You must select an attribute</div>}
+          </div>
+          <div className="form__switcher padding">
+            <label>Type of attack : </label>
+            <span>
+              {' '}
+              <img src={rangedIco} alt="rangedIco" /> Ranged
+            </span>
+            <label className="switch">
               <input
                 type="checkbox"
-                onClick={() => this.handleClickAgree()}
-                ref={this.agreeInput}
+                onClick={() => handleClickTypeAttack()}
+                data-testid="typeAttackButton"
               />
-              {this.state.acceptFormDirty && <div className="wrong">You must to agree</div>}
-            </div>
+              <span className="slider round"></span>
+            </label>
+            <span>
+              {' '}
+              <img src={meleeIco} alt="meleeIco" /> Melee
+            </span>
+          </div>
+          <div className="form__flex padding">
+            <label className="input__margin">
+              {' '}
+              Role :
+              <input
+                ref={radioFirstInput}
+                className="input_radio"
+                type="radio"
+                name="role"
+                data-testid="Carry"
+                value="Carry"
+                onChange={() => handleRadioChange()}
+              />
+              <label>Carry</label>
+              <input
+                ref={radioSecondInput}
+                className="input_radio"
+                type="radio"
+                name="role"
+                data-testid="Mid"
+                value="Mid"
+                onChange={() => handleRadioChange()}
+              />
+              <label>Mid</label>
+              <input
+                ref={radioThirdInput}
+                className="input_radio"
+                type="radio"
+                name="role"
+                data-testid="Support"
+                value="Support"
+                onChange={() => handleRadioChange()}
+              />
+              <label>Support</label>
+            </label>
+            {roleFormDirty && <div className="wrong">You must select role</div>}
+          </div>
+          <div className="form__flex padding">
+            <label>Release date : </label>
             <input
-              type="button"
-              value="Create Hero"
-              className="form__submit"
-              data-testid="submit-button"
-              onClick={() => this.checkValidation()}
+              type="date"
+              ref={dateInput}
+              data-testid="date-button"
+              className="input__margin"
             />
-          </form>
-        </div>
-        <div className="cards">
-          {this.state.customHeroesArr.map((card) => (
-            <CustomCard
-              key={card.id}
-              heroName={card.heroName}
-              heroImage={card.heroImage}
-              heroAttribute={card.heroAttribute}
-              heroTypeAttack={card.heroTypeAttack}
-              heroRole={card.heroRole}
-              heroDate={card.heroDate}
+            {dateFormDirty && <div className="wrong">You must select the future date</div>}
+            {dateFormEmpty && <div className="wrong">Date field mustn`t be epmty</div>}
+          </div>
+          <div className="form__flex">
+            <label>Hero image </label>
+            <input
+              type="file"
+              accept="image/png, image/jpeg"
+              ref={imageInput}
+              onChange={handleImageUpload}
             />
-          ))}
-        </div>
+            {imageFormDirty && <div className="wrong">You must to upload image</div>}
+          </div>
+          <div className="form__checkbox padding">
+            <label>I consent to use of my data</label>
+            <input type="checkbox" onClick={() => handleClickAgree()} ref={agreeInput} />
+            {acceptFormDirty && <div className="wrong">You must to agree</div>}
+          </div>
+          <input
+            type="button"
+            value="Create Hero"
+            className="form__submit"
+            data-testid="submit-button"
+            onClick={() => checkValidation()}
+          />
+        </form>
       </div>
-    );
-  }
-}
+      <div className="cards">
+        {customHeroesArr.map((card) => (
+          <CustomCard
+            key={customHeroesArr.length}
+            heroName={card.heroName}
+            heroImage={card.heroImage}
+            heroAttribute={card.heroAttribute}
+            heroTypeAttack={card.heroTypeAttack}
+            heroRole={card.heroRole}
+            heroDate={card.heroDate}
+          />
+        ))}
+      </div>
+    </div>
+  );
+};
 
 export default FormPage;
