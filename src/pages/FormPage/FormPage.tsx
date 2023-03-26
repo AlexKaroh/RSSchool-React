@@ -141,7 +141,7 @@ const FormPage: React.FC<IForm> = () => {
     zeroing();
   };
   return (
-    <div className="FormPage">
+    <div className="FormPage" data-testid="form">
       <div className={showForm ? 'animation' : 'popup_container'}>{showForm && <PopUp />}</div>
       <div className="form__container">
         <form className="form" onSubmit={zeroing.bind(this)} ref={formRef}>
