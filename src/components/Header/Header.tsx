@@ -4,7 +4,7 @@ import Nav from '../Nav/Nav';
 import dotalogo from '../../assets/dotalogo.png';
 import { Link, useLocation } from 'react-router-dom';
 
-function Header() {
+const Header = () => {
   const location = useLocation();
   const pageTitle = location.pathname.substring(1);
   return (
@@ -18,6 +18,6 @@ function Header() {
       <Nav />
     </header>
   );
-}
+};
 
 export default Header;

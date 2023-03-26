@@ -5,7 +5,7 @@ import gitlogo from '../../assets/gitLogo.svg';
 import tglogo from '../../assets/tgLogo.svg';
 import linklogo from '../../assets/linkLogo.svg';
 
-function AboutUs() {
+const AboutUs = () => {
   return (
     <div className="about">
       <h1>About me</h1>
@@ -28,6 +28,6 @@ function AboutUs() {
       </div>
     </div>
   );
-}
+};
 
 export default AboutUs;

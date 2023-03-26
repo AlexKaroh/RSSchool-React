@@ -3,7 +3,7 @@ import './404Page.css';
 import tinerGif from '../../assets/tinker.gif';
 import { Link } from 'react-router-dom';
 
-function NotFound() {
+const NotFound = () => {
   return (
     <div className="Page404">
       <div className="video__container">
@@ -25,6 +25,6 @@ function NotFound() {
       </div>
     </div>
   );
-}
+};
 
 export default NotFound;

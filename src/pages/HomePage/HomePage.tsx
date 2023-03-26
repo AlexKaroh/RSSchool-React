@@ -4,7 +4,7 @@ import heroes from '../../heroes.json';
 import searchImg from '../../assets/search.svg';
 import Card from '../../components/Card/Card';
 
-function Home() {
+const Home = () => {
   const [searchValue, setSearchValue] = useState('');
   const [filteredArr, setFilteredArr] = useState(heroes);
 
@@ -57,6 +57,6 @@ function Home() {
       </div>
     </div>
   );
-}
+};
 
 export default Home;

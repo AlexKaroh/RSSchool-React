@@ -2,7 +2,7 @@ import './Footer.css';
 import React from 'react';
 import rsslogo from '../../assets/rssLogo.svg';
 
-function Footer() {
+const Footer = () => {
   return (
     <footer className="footer">
       <div className="footer__author"></div>
@@ -17,6 +17,6 @@ function Footer() {
       </a>
     </footer>
   );
-}
+};
 
 export default Footer;

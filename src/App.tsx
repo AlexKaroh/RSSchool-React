@@ -7,7 +7,7 @@ import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import FormPage from './pages/FormPage/FormPage';
 
-function App() {
+const App = () => {
   return (
     <Router>
       <Header />
@@ -20,5 +20,6 @@ function App() {
       <Footer />
     </Router>
   );
-}
+};
+
 export default App;
