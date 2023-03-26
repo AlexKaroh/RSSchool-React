@@ -7,20 +7,18 @@ import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import FormPage from './pages/FormPage/FormPage';
 
-class App extends React.Component {
-  render() {
-    return (
-      <Router>
-        <Header />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/AboutUs" element={<AboutUs />} />
-          <Route path="/Form" element={<FormPage />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-        <Footer />
-      </Router>
-    );
-  }
+function App() {
+  return (
+    <Router>
+      <Header />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/AboutUs" element={<AboutUs />} />
+        <Route path="/Form" element={<FormPage />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+      <Footer />
+    </Router>
+  );
 }
 export default App;
