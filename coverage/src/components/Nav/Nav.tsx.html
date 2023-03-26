@@ -25,7 +25,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>31/31</span>
+                <span class='fraction'>29/29</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>31/31</span>
+                <span class='fraction'>29/29</span>
             </div>
         
             
@@ -92,68 +92,62 @@
 <a name='L27'></a><a href='#L27'>27</a>
 <a name='L28'></a><a href='#L28'>28</a>
 <a name='L29'></a><a href='#L29'>29</a>
-<a name='L30'></a><a href='#L30'>30</a>
-<a name='L31'></a><a href='#L31'>31</a>
-<a name='L32'></a><a href='#L32'>32</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L30'></a><a href='#L30'>30</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import './Nav.css';
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 &nbsp;
-class Nav extends React.Component {
-  render() {
-    return (
-      &lt;nav className="nav"&gt;
-        &lt;ul className="nav__list"&gt;
-          &lt;li className="nav__item"&gt;
-            &lt;NavLink className="nav__link" to="/"&gt;
-              Home Page
-            &lt;/NavLink&gt;
-          &lt;/li&gt;
-          &lt;li className="nav__item"&gt;
-            &lt;NavLink className="nav__link" to="/AboutUs"&gt;
-              About Us
-            &lt;/NavLink&gt;
-          &lt;/li&gt;
-          &lt;li className="nav__item"&gt;
-            &lt;NavLink className="nav__link" to="/Form"&gt;
-              Create Hero
-            &lt;/NavLink&gt;
-          &lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/nav&gt;
-    );
-  }
-}
+const Nav = () =&gt; {
+  return (
+    &lt;nav className="nav"&gt;
+      &lt;ul className="nav__list"&gt;
+        &lt;li className="nav__item"&gt;
+          &lt;NavLink className="nav__link" to="/"&gt;
+            Home Page
+          &lt;/NavLink&gt;
+        &lt;/li&gt;
+        &lt;li className="nav__item"&gt;
+          &lt;NavLink className="nav__link" to="/AboutUs"&gt;
+            About Us
+          &lt;/NavLink&gt;
+        &lt;/li&gt;
+        &lt;li className="nav__item"&gt;
+          &lt;NavLink className="nav__link" to="/Form"&gt;
+            Create Hero
+          &lt;/NavLink&gt;
+        &lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/nav&gt;
+  );
+};
 &nbsp;
 export default Nav;
 &nbsp;</pre></td></tr></table></pre>
@@ -163,7 +157,7 @@ export default Nav;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-03-24T19:37:11.135Z
+                at 2023-03-26T14:31:29.127Z
             </div>
         <script src="../../../prettify.js"></script>
         <script>

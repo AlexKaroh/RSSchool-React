@@ -25,14 +25,14 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>25/25</span>
+                <span class='fraction'>23/23</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">50% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>1/2</span>
+                <span class='fraction'>3/3</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>25/25</span>
+                <span class='fraction'>23/23</span>
             </div>
         
             
@@ -86,58 +86,52 @@
 <a name='L21'></a><a href='#L21'>21</a>
 <a name='L22'></a><a href='#L22'>22</a>
 <a name='L23'></a><a href='#L23'>23</a>
-<a name='L24'></a><a href='#L24'>24</a>
-<a name='L25'></a><a href='#L25'>25</a>
-<a name='L26'></a><a href='#L26'>26</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L24'></a><a href='#L24'>24</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import './Header.css';
 import React from 'react';
 import Nav from '../Nav/Nav';
 import dotalogo from '../../assets/dotalogo.png';
-import { Link } from 'react-router-dom';
-import { WithRouterProps, withRouter } from '../../withRouter';
-class Header extends React.Component&lt;WithRouterProps&gt; {
-  render() {
-    const { location } = this.props;
-    const pageTitle = location.pathname.substring(1);
-    return (
-      &lt;header className="header"&gt;
-        &lt;div className="header__container"&gt;
-          &lt;Link to="/"&gt;
-            &lt;img className="header__logo" src={dotalogo} alt="dota logo" /&gt;
-          &lt;/Link&gt;
-          &lt;h1 className="header__page"&gt;{pageTitle === '' ? <span class="branch-0 cbranch-no" title="branch not covered" >'Home' : pageTitle}&lt;</span>/h1&gt;
-        &lt;/div&gt;
-        &lt;Nav /&gt;
-      &lt;/header&gt;
-    );
-  }
-}
+import { Link, useLocation } from 'react-router-dom';
 &nbsp;
-export default withRouter(Header);
+const Header = () =&gt; {
+  const location = useLocation();
+  const pageTitle = location.pathname.substring(1);
+  return (
+    &lt;header className="header"&gt;
+      &lt;div className="header__container"&gt;
+        &lt;Link to="/"&gt;
+          &lt;img className="header__logo" src={dotalogo} alt="dota logo" /&gt;
+        &lt;/Link&gt;
+        &lt;h1 className="header__page"&gt;{pageTitle === '' ? 'Home' : pageTitle}&lt;/h1&gt;
+      &lt;/div&gt;
+      &lt;Nav /&gt;
+    &lt;/header&gt;
+  );
+};
+&nbsp;
+export default Header;
 &nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
@@ -145,7 +139,7 @@ export default withRouter(Header);
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-03-24T19:37:11.135Z
+                at 2023-03-26T14:31:29.127Z
             </div>
         <script src="../../../prettify.js"></script>
         <script>
