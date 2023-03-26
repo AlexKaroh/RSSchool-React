@@ -50,10 +50,24 @@ describe('CustomCard', () => {
     expect(attributeImage.src).toContain('hero_intelligence.png');
   });
 
-  it('render type attack', () => {
+  it('render ranged type attack', () => {
     render(<CustomCard {...props} />);
     const heroAttackElement = screen.getByText('Ranged');
     expect(heroAttackElement).toBeInTheDocument();
+  });
+
+  it('render melee type attack', () => {
+    const props = {
+      heroName: 'Test Hero',
+      heroImage: 'https://example.com/test-hero.png',
+      heroRole: 'Carry',
+      heroDate: '2022-01-01',
+      heroAttribute: 'Agility',
+      heroTypeAttack: false,
+    };
+    const { getByText } = render(<CustomCard {...props} />);
+    const heroAttack = getByText('Melee');
+    expect(heroAttack).toBeInTheDocument();
   });
 
   it('render hero role', () => {

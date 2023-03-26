@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1679841089219" clover="3.2.0">
-  <project timestamp="1679841089219" name="All files">
-    <metrics statements="623" coveredstatements="560" conditionals="59" coveredconditionals="43" methods="34" coveredmethods="22" elements="716" coveredelements="625" complexity="0" loc="623" ncloc="623" packages="11" files="11" classes="11"/>
+<coverage generated="1679842613431" clover="3.2.0">
+  <project timestamp="1679842613431" name="All files">
+    <metrics statements="619" coveredstatements="559" conditionals="58" coveredconditionals="45" methods="34" coveredmethods="22" elements="711" coveredelements="626" complexity="0" loc="619" ncloc="619" packages="11" files="11" classes="11"/>
     <package name="src">
       <metrics statements="25" coveredstatements="25" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
       <file name="App.tsx" path="G:\RSSchool-React\src\App.tsx">
@@ -62,66 +62,62 @@
       </file>
     </package>
     <package name="src.components.CustomCard">
-      <metrics statements="57" coveredstatements="54" conditionals="9" coveredconditionals="6" methods="3" coveredmethods="3"/>
+      <metrics statements="53" coveredstatements="53" conditionals="8" coveredconditionals="8" methods="3" coveredmethods="3"/>
       <file name="CustomCard.tsx" path="G:\RSSchool-React\src\components\CustomCard\CustomCard.tsx">
-        <metrics statements="57" coveredstatements="54" conditionals="9" coveredconditionals="6" methods="3" coveredmethods="3"/>
+        <metrics statements="53" coveredstatements="53" conditionals="8" coveredconditionals="8" methods="3" coveredmethods="3"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
         <line num="4" count="1" type="stmt"/>
         <line num="5" count="1" type="cond" truecount="1" falsecount="0"/>
-        <line num="6" count="9" type="stmt"/>
-        <line num="7" count="9" type="stmt"/>
-        <line num="8" count="9" type="stmt"/>
-        <line num="9" count="9" type="stmt"/>
-        <line num="10" count="9" type="stmt"/>
-        <line num="11" count="9" type="stmt"/>
-        <line num="12" count="9" type="stmt"/>
-        <line num="13" count="9" type="cond" truecount="1" falsecount="0"/>
-        <line num="14" count="9" type="stmt"/>
-        <line num="15" count="9" type="cond" truecount="1" falsecount="0"/>
-        <line num="16" count="7" type="stmt"/>
-        <line num="17" count="9" type="cond" truecount="1" falsecount="0"/>
+        <line num="6" count="10" type="stmt"/>
+        <line num="7" count="10" type="stmt"/>
+        <line num="8" count="10" type="stmt"/>
+        <line num="9" count="10" type="stmt"/>
+        <line num="10" count="10" type="stmt"/>
+        <line num="11" count="10" type="stmt"/>
+        <line num="12" count="10" type="stmt"/>
+        <line num="13" count="10" type="cond" truecount="1" falsecount="0"/>
+        <line num="14" count="10" type="stmt"/>
+        <line num="15" count="10" type="cond" truecount="1" falsecount="0"/>
+        <line num="16" count="8" type="stmt"/>
+        <line num="17" count="10" type="cond" truecount="1" falsecount="0"/>
         <line num="18" count="1" type="stmt"/>
-        <line num="19" count="9" type="cond" truecount="1" falsecount="0"/>
+        <line num="19" count="10" type="cond" truecount="1" falsecount="0"/>
         <line num="20" count="1" type="stmt"/>
-        <line num="21" count="9" type="cond" truecount="0" falsecount="1"/>
-        <line num="22" count="0" type="stmt"/>
-        <line num="23" count="9" type="stmt"/>
-        <line num="24" count="9" type="stmt"/>
-        <line num="25" count="9" type="stmt"/>
-        <line num="26" count="9" type="cond" truecount="1" falsecount="0"/>
-        <line num="27" count="9" type="stmt"/>
-        <line num="28" count="9" type="cond" truecount="0" falsecount="1"/>
-        <line num="29" count="0" type="stmt"/>
-        <line num="30" count="9" type="stmt"/>
-        <line num="31" count="9" type="stmt"/>
-        <line num="32" count="9" type="cond" truecount="0" falsecount="1"/>
-        <line num="33" count="0" type="stmt"/>
-        <line num="34" count="9" type="stmt"/>
-        <line num="35" count="9" type="stmt"/>
-        <line num="36" count="9" type="stmt"/>
-        <line num="37" count="9" type="stmt"/>
-        <line num="38" count="9" type="stmt"/>
-        <line num="39" count="9" type="stmt"/>
-        <line num="40" count="9" type="stmt"/>
-        <line num="41" count="9" type="stmt"/>
-        <line num="42" count="9" type="stmt"/>
-        <line num="43" count="9" type="stmt"/>
-        <line num="44" count="9" type="stmt"/>
-        <line num="45" count="9" type="stmt"/>
-        <line num="46" count="9" type="stmt"/>
-        <line num="47" count="9" type="stmt"/>
-        <line num="48" count="9" type="stmt"/>
-        <line num="49" count="9" type="stmt"/>
-        <line num="50" count="9" type="stmt"/>
-        <line num="51" count="9" type="stmt"/>
-        <line num="52" count="9" type="stmt"/>
-        <line num="53" count="9" type="stmt"/>
-        <line num="54" count="9" type="stmt"/>
-        <line num="55" count="9" type="stmt"/>
-        <line num="56" count="1" type="stmt"/>
-        <line num="57" count="1" type="stmt"/>
+        <line num="21" count="10" type="stmt"/>
+        <line num="22" count="10" type="stmt"/>
+        <line num="23" count="10" type="stmt"/>
+        <line num="24" count="10" type="cond" truecount="1" falsecount="0"/>
+        <line num="25" count="10" type="stmt"/>
+        <line num="26" count="10" type="cond" truecount="1" falsecount="0"/>
+        <line num="27" count="1" type="stmt"/>
+        <line num="28" count="10" type="cond" truecount="1" falsecount="0"/>
+        <line num="29" count="9" type="stmt"/>
+        <line num="30" count="10" type="stmt"/>
+        <line num="31" count="10" type="stmt"/>
+        <line num="32" count="10" type="stmt"/>
+        <line num="33" count="10" type="stmt"/>
+        <line num="34" count="10" type="stmt"/>
+        <line num="35" count="10" type="stmt"/>
+        <line num="36" count="10" type="stmt"/>
+        <line num="37" count="10" type="stmt"/>
+        <line num="38" count="10" type="stmt"/>
+        <line num="39" count="10" type="stmt"/>
+        <line num="40" count="10" type="stmt"/>
+        <line num="41" count="10" type="stmt"/>
+        <line num="42" count="10" type="stmt"/>
+        <line num="43" count="10" type="stmt"/>
+        <line num="44" count="10" type="stmt"/>
+        <line num="45" count="10" type="stmt"/>
+        <line num="46" count="10" type="stmt"/>
+        <line num="47" count="10" type="stmt"/>
+        <line num="48" count="10" type="stmt"/>
+        <line num="49" count="10" type="stmt"/>
+        <line num="50" count="10" type="stmt"/>
+        <line num="51" count="10" type="stmt"/>
+        <line num="52" count="1" type="stmt"/>
+        <line num="53" count="1" type="stmt"/>
       </file>
     </package>
     <package name="src.components.Footer">

@@ -18,8 +18,6 @@ const CustomCard: React.FC<ICustomCardProps> = ({
         return 'https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/icons/hero_strength.png';
       case 'Intelligence':
         return 'https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/icons/hero_intelligence.png';
-      default:
-        return '';
     }
   };
 
@@ -29,8 +27,6 @@ const CustomCard: React.FC<ICustomCardProps> = ({
         return 'Melee';
       case true:
         return 'Ranged';
-      default:
-        return '';
     }
   };
 
