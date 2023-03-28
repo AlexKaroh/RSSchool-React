@@ -1,11 +1,17 @@
 import React, { useRef, useState } from 'react';
 import './FormPage.css';
-import meleeIco from '../../assets/melee.svg';
-import rangedIco from '../../assets/ranged.svg';
 import IForm from '../../interfaces/IForm';
 import CustomCard from '../../components/CustomCard/CustomCard';
 import CustomCardProps from '../../interfaces/ICustomCardProps';
 import PopUp from '../../components/PopUp/PopUp';
+import NameForm from '../../components/Forms/NameForm';
+import AttributeForm from '../../components/Forms/AttributeForm';
+import TypeOfAttackForm from '../../components/Forms/TypeOfAttackForm';
+import RoleForm from '../../components/Forms/RoleForm';
+import DateForm from '../../components/Forms/DateForm';
+import ImageForm from '../../components/Forms/ImageForm';
+import AcceptForm from '../../components/Forms/AcceptForm';
+import ValidteForm from '../../components/Forms/ValidateForm';
 
 const FormPage: React.FC<IForm> = () => {
   const [typeAttack, setTypeAttack] = useState(true);
@@ -27,35 +33,7 @@ const FormPage: React.FC<IForm> = () => {
   const textInput = useRef<HTMLInputElement>(null);
   const selectInput = useRef<HTMLSelectElement>(null);
   const dateInput = useRef<HTMLInputElement>(null);
-  const radioFirstInput = useRef<HTMLInputElement>(null);
-  const radioSecondInput = useRef<HTMLInputElement>(null);
-  const radioThirdInput = useRef<HTMLInputElement>(null);
-  const imageInput = useRef<HTMLInputElement>(null);
-  const agreeInput = useRef<HTMLInputElement>(null);
   const currentDate = new Date();
-
-  const handleImageUpload = () => {
-    const file = imageInput.current?.files![0];
-    const url = URL.createObjectURL(file as Blob | MediaSource);
-    setImageUrl(url);
-  };
-
-  const handleRadioChange = () => {
-    const role = radioFirstInput.current?.checked
-      ? radioFirstInput.current.value
-      : radioSecondInput.current?.checked
-      ? radioSecondInput.current.value
-      : radioThirdInput.current?.value;
-    setRole(role as string);
-  };
-
-  const handleClickTypeAttack = () => {
-    setTypeAttack(!typeAttack);
-  };
-
-  const handleClickAgree = () => {
-    setAgree(agreeInput.current?.checked as boolean);
-  };
 
   const dateValidation = () => {
     const selectedDateVal = dateInput.current?.value;
@@ -145,120 +123,14 @@ const FormPage: React.FC<IForm> = () => {
       <div className={showForm ? 'animation' : 'popup_container'}>{showForm && <PopUp />}</div>
       <div className="form__container">
         <form className="form" onSubmit={zeroing.bind(this)} ref={formRef}>
-          <div className="form__flex padding">
-            <label className="form__flex_font label__margin">Hero Name : </label>
-            <input
-              type="text"
-              ref={textInput}
-              data-testid="name_input"
-              className="input_text label__margin"
-            />
-            {nameFromEmpty && <div className="wrong">Field mustn`t be empty</div>}
-            {nameFromDirty && (
-              <div className="wrong">
-                Field mustn`t contain numbers, symbols and start with a capital letter
-              </div>
-            )}
-          </div>
-          <div className="form__flex padding">
-            <label className="form__flex_font">Hero Attribute : </label>
-            <select ref={selectInput} className="input__margin">
-              <option value="">Select Attribute</option>
-              <option value="Agility">Agility</option>
-              <option value="Strength">Strength</option>
-              <option value="Intelligence">Intelligence</option>
-            </select>
-            {attributeFromDirty && <div className="wrong">You must select an attribute</div>}
-          </div>
-          <div className="form__switcher padding">
-            <label>Type of attack : </label>
-            <span>
-              {' '}
-              <img src={rangedIco} alt="rangedIco" /> Ranged
-            </span>
-            <label className="switch">
-              <input
-                type="checkbox"
-                onClick={() => handleClickTypeAttack()}
-                data-testid="typeAttackButton"
-              />
-              <span className="slider round"></span>
-            </label>
-            <span>
-              {' '}
-              <img src={meleeIco} alt="meleeIco" /> Melee
-            </span>
-          </div>
-          <div className="form__flex padding">
-            <label className="input__margin">
-              {' '}
-              Role :
-              <input
-                ref={radioFirstInput}
-                className="input_radio"
-                type="radio"
-                name="role"
-                data-testid="Carry"
-                value="Carry"
-                onChange={() => handleRadioChange()}
-              />
-              <label>Carry</label>
-              <input
-                ref={radioSecondInput}
-                className="input_radio"
-                type="radio"
-                name="role"
-                data-testid="Mid"
-                value="Mid"
-                onChange={() => handleRadioChange()}
-              />
-              <label>Mid</label>
-              <input
-                ref={radioThirdInput}
-                className="input_radio"
-                type="radio"
-                name="role"
-                data-testid="Support"
-                value="Support"
-                onChange={() => handleRadioChange()}
-              />
-              <label>Support</label>
-            </label>
-            {roleFormDirty && <div className="wrong">You must select role</div>}
-          </div>
-          <div className="form__flex padding">
-            <label>Release date : </label>
-            <input
-              type="date"
-              ref={dateInput}
-              data-testid="date-button"
-              className="input__margin"
-            />
-            {dateFormDirty && <div className="wrong">You must select the future date</div>}
-            {dateFormEmpty && <div className="wrong">Date field mustn`t be epmty</div>}
-          </div>
-          <div className="form__flex">
-            <label>Hero image </label>
-            <input
-              type="file"
-              accept="image/png, image/jpeg"
-              ref={imageInput}
-              onChange={handleImageUpload}
-            />
-            {imageFormDirty && <div className="wrong">You must to upload image</div>}
-          </div>
-          <div className="form__checkbox padding">
-            <label>I consent to use of my data</label>
-            <input type="checkbox" onClick={() => handleClickAgree()} ref={agreeInput} />
-            {acceptFormDirty && <div className="wrong">You must to agree</div>}
-          </div>
-          <input
-            type="button"
-            value="Create Hero"
-            className="form__submit"
-            data-testid="submit-button"
-            onClick={() => checkValidation()}
-          />
+          <NameForm nameFromEmpty={nameFromEmpty} nameFromDirty={nameFromDirty} />
+          <AttributeForm attributeFromDirty={attributeFromDirty} />
+          <TypeOfAttackForm typeAttack={typeAttack} setTypeAttack={setTypeAttack} />
+          <RoleForm roleFormDirty={roleFormDirty} />
+          <DateForm dateFormDirty={dateFormDirty} dateFormEmpty={dateFormEmpty} />
+          <ImageForm imageFormDirty={imageFormDirty} setImageUrl={setImageUrl} />
+          <AcceptForm acceptFormDirty={acceptFormDirty} setAgree={setAgree} />
+          <ValidteForm />
         </form>
       </div>
       <div className="cards">
