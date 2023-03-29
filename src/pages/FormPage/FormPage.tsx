@@ -48,7 +48,7 @@ const FormPage: React.FC<IForm> = () => {
             <AttributeForm />
             <TypeOfAttackForm />
             <RoleForm />
-            <DateForm dateFormDirty={dateFormDirty} dateFormEmpty={dateFormEmpty} />
+            <DateForm />
             <ImageForm imageFormDirty={imageFormDirty} setImageUrl={setImageUrl} />
             <AcceptForm acceptFormDirty={acceptFormDirty} setAgree={setAgree} />
             <ValidteForm />
