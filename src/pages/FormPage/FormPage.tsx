@@ -50,7 +50,7 @@ const FormPage: React.FC<IForm> = () => {
             <RoleForm />
             <DateForm />
             <ImageForm />
-            <AcceptForm acceptFormDirty={acceptFormDirty} setAgree={setAgree} />
+            <AcceptForm />
             <ValidteForm />
           </form>
         </FormProvider>

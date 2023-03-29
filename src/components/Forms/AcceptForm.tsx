@@ -1,19 +1,22 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import React from 'react';
+import { useFormContext } from 'react-hook-form';
 
-const AcceptForm: React.FC<{
-  acceptFormDirty: boolean;
-  setAgree: (arg: boolean) => void;
-}> = ({ acceptFormDirty, setAgree }) => {
-  const handleClickAgree = () => {
-    // setAgree(agreeInput.current?.checked as boolean);
-  };
+const AcceptForm: React.FC = () => {
+  const {
+    formState: { errors },
+    register,
+  } = useFormContext();
 
   return (
     <div className="form__checkbox padding">
       <label>I consent to use of my data</label>
-      <input type="checkbox" onClick={() => handleClickAgree()} />
-      {acceptFormDirty && <div className="wrong">You must to agree</div>}
+      <input
+        type="checkbox"
+        {...register('heroAgree', {
+          required: 'You must to agree',
+        })}
+      />
+      {errors.heroAgree && <div className="wrong">{errors.heroAgree.message?.toString()}</div>}
     </div>
   );
 };
