@@ -46,7 +46,7 @@ const FormPage: React.FC<IForm> = () => {
           <form className="form" onSubmit={methods.handleSubmit(onSubmit)}>
             <NameForm />
             <AttributeForm />
-            <TypeOfAttackForm typeAttack={typeAttack} setTypeAttack={setTypeAttack} />
+            <TypeOfAttackForm />
             <RoleForm roleFormDirty={roleFormDirty} />
             <DateForm dateFormDirty={dateFormDirty} dateFormEmpty={dateFormEmpty} />
             <ImageForm imageFormDirty={imageFormDirty} setImageUrl={setImageUrl} />

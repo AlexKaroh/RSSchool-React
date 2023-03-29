@@ -1,14 +1,10 @@
 import React from 'react';
 import meleeIco from '../../assets/melee.svg';
 import rangedIco from '../../assets/ranged.svg';
+import { useFormContext } from 'react-hook-form';
 
-const TypeOfAttackForm: React.FC<{
-  typeAttack: boolean;
-  setTypeAttack: (typeAttack: boolean) => void;
-}> = ({ typeAttack, setTypeAttack }) => {
-  const handleClickTypeAttack = () => {
-    setTypeAttack(!typeAttack);
-  };
+const TypeOfAttackForm: React.FC = () => {
+  const { register } = useFormContext();
 
   return (
     <div className="form__switcher padding">
@@ -18,7 +14,7 @@ const TypeOfAttackForm: React.FC<{
         <img src={rangedIco} alt="rangedIco" /> Ranged
       </span>
       <label className="switch">
-        <input type="checkbox" onClick={handleClickTypeAttack} data-testid="typeAttackButton" />
+        <input type="checkbox" {...register('heroTypeAttack')} data-testid="typeAttackButton" />
         <span className="slider round"></span>
       </label>
       <span>
