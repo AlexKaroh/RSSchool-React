@@ -23,9 +23,9 @@ const CustomCard: React.FC<ICustomCardProps> = ({
 
   const createHeroTypeAttack = () => {
     switch (heroTypeAttack) {
-      case false:
-        return 'Melee';
       case true:
+        return 'Melee';
+      case false:
         return 'Ranged';
     }
   };

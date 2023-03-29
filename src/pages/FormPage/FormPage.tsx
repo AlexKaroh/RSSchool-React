@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useState } from 'react';
 import './FormPage.css';
 import IForm from '../../interfaces/IForm';
@@ -16,26 +15,32 @@ import ValidteForm from '../../components/Forms/ValidateForm';
 import { useForm, FormProvider, SubmitHandler, FieldValues } from 'react-hook-form';
 
 const FormPage: React.FC<IForm> = () => {
-  const [heroName, setHeroName] = useState('');
-  const [typeAttack, setTypeAttack] = useState(true);
-  const [agree, setAgree] = useState(false);
-  const [imageUrl, setImageUrl] = useState('');
-  const [role, setRole] = useState('');
   const [customHeroesArr, setCustomHeroesArr] = useState<CustomCardProps[]>([]);
-  const [nameFromDirty, setNameFromDirty] = useState(false);
-  const [nameFromEmpty, setNameFromEmpty] = useState(false);
-  const [attributeFromDirty, setAttributeFromDirty] = useState(false);
-  const [roleFormDirty, setRoleFormDirty] = useState(false);
-  const [dateFormDirty, setDateFormDirty] = useState(false);
-  const [dateFormEmpty, setDateFormEmpty] = useState(false);
-  const [imageFormDirty, setImageFormDirty] = useState(false);
-  const [acceptFormDirty, setAcceptFormDirty] = useState(false);
   const [showForm, setShowForm] = useState(false);
-
   const methods = useForm({ mode: 'onSubmit' });
+  const { reset } = methods;
 
   const onSubmit: SubmitHandler<FieldValues> = (data) => {
-    console.log(data);
+    customHeroesArr.push({
+      heroName: data.heroName,
+      heroTypeAttack: data.heroTypeAttack,
+      heroImage: URL.createObjectURL(data.heroImage[0]),
+      heroRole: data.heroRole,
+      heroAttribute: data.heroAttribute,
+      heroDate: data.heroDate,
+      heroAgree: data.heroAgree,
+      id: customHeroesArr.length,
+    });
+
+    setCustomHeroesArr(customHeroesArr);
+
+    setShowForm(true);
+
+    setTimeout(() => {
+      setShowForm(false);
+    }, 4000);
+
+    reset();
   };
 
   return (
@@ -58,7 +63,7 @@ const FormPage: React.FC<IForm> = () => {
       <div className="cards">
         {customHeroesArr.map((card) => (
           <CustomCard
-            key={customHeroesArr.length}
+            key={card.id}
             heroName={card.heroName}
             heroImage={card.heroImage}
             heroAttribute={card.heroAttribute}

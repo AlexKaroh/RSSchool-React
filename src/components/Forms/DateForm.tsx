@@ -12,7 +12,7 @@ const DateForm: React.FC = () => {
       <label>Release date : </label>
       <input
         type="date"
-        {...register('heroRealese', {
+        {...register('heroDate', {
           required: 'Date field mustn`t be epmty',
           min: {
             value: new Date().toISOString().split('T')[0],
@@ -22,7 +22,7 @@ const DateForm: React.FC = () => {
         data-testid="date-button"
         className="input__margin"
       />
-      {errors.heroRealese && <div className="wrong">{errors.heroRealese.message?.toString()}</div>}
+      {errors.heroDate && <div className="wrong">{errors.heroDate.message?.toString()}</div>}
     </div>
   );
 };
