@@ -21,8 +21,8 @@ const AttributeForm: React.FC = () => {
         <option value="Strength">Strength</option>
         <option value="Intelligence">Intelligence</option>
       </select>
-      {errors?.heroAttribute && (
-        <div className="wrong">{errors?.heroAttribute?.message?.toString()}</div>
+      {errors.heroAttribute && (
+        <div className="wrong">{errors.heroAttribute.message?.toString()}</div>
       )}
     </div>
   );

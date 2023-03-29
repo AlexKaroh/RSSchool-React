@@ -26,7 +26,7 @@ const NameForm: React.FC = () => {
         className="input_text label__margin"
         data-testid="name_input"
       />
-      {errors?.heroName && <div className="wrong">{errors?.heroName?.message?.toString()}</div>}
+      {errors.heroName && <div className="wrong">{errors.heroName.message?.toString()}</div>}
     </div>
   );
 };
