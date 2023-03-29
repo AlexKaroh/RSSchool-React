@@ -9,7 +9,7 @@ describe('CustomCard', () => {
     heroRole: 'Carry',
     heroDate: '2222-22-22',
     heroAttribute: 'Agility',
-    heroTypeAttack: true,
+    heroTypeAttack: false,
     id: 1,
   };
 
@@ -64,7 +64,7 @@ describe('CustomCard', () => {
       heroRole: 'Carry',
       heroDate: '2022-01-01',
       heroAttribute: 'Agility',
-      heroTypeAttack: false,
+      heroTypeAttack: true,
       id: 1,
     };
     const { getByText } = render(<CustomCard {...props} />);

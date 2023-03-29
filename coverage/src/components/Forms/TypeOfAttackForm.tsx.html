@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for src/components/Card/Card.tsx</title>
+    <title>Code coverage report for src/components/Forms/TypeOfAttackForm.tsx</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../../prettify.css" />
     <link rel="stylesheet" href="../../../base.css" />
@@ -19,13 +19,13 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../../index.html">All files</a> / <a href="index.html">src/components/Card</a> Card.tsx</h1>
+        <h1><a href="../../../index.html">All files</a> / <a href="index.html">src/components/Forms</a> TypeOfAttackForm.tsx</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>22/22</span>
+                <span class='fraction'>28/28</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>22/22</span>
+                <span class='fraction'>28/28</span>
             </div>
         
             
@@ -85,50 +85,68 @@
 <a name='L20'></a><a href='#L20'>20</a>
 <a name='L21'></a><a href='#L21'>21</a>
 <a name='L22'></a><a href='#L22'>22</a>
-<a name='L23'></a><a href='#L23'>23</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L23'></a><a href='#L23'>23</a>
+<a name='L24'></a><a href='#L24'>24</a>
+<a name='L25'></a><a href='#L25'>25</a>
+<a name='L26'></a><a href='#L26'>26</a>
+<a name='L27'></a><a href='#L27'>27</a>
+<a name='L28'></a><a href='#L28'>28</a>
+<a name='L29'></a><a href='#L29'>29</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">397x</span>
-<span class="cline-any cline-yes">397x</span>
-<span class="cline-any cline-yes">397x</span>
-<span class="cline-any cline-yes">397x</span>
-<span class="cline-any cline-yes">397x</span>
-<span class="cline-any cline-yes">397x</span>
-<span class="cline-any cline-yes">397x</span>
-<span class="cline-any cline-yes">397x</span>
-<span class="cline-any cline-yes">397x</span>
-<span class="cline-any cline-yes">397x</span>
-<span class="cline-any cline-yes">397x</span>
-<span class="cline-any cline-yes">397x</span>
-<span class="cline-any cline-yes">397x</span>
-<span class="cline-any cline-yes">397x</span>
-<span class="cline-any cline-yes">397x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React from 'react';
-import './Card.css';
-import ICard from '../../interfaces/ICard';
+import meleeIco from '../../assets/melee.svg';
+import rangedIco from '../../assets/ranged.svg';
+import { useFormContext } from 'react-hook-form';
 &nbsp;
-const Card: React.FC&lt;ICard&gt; = ({ id, image, name, attackType, primaryAttr }) =&gt; {
+const TypeOfAttackForm: React.FC = () =&gt; {
+  const { register } = useFormContext();
+&nbsp;
   return (
-    &lt;div className="card" key={id}&gt;
-      &lt;div className="card__image_container"&gt;
-        &lt;img className="card__image" src={image} alt="hero image" /&gt;
-      &lt;/div&gt;
-      &lt;div className="card__name"&gt;{name}&lt;/div&gt;
-      &lt;div className="card__info"&gt;
-        &lt;div className="card__attack"&gt;{attackType}&lt;/div&gt;
-        &lt;div className="card__attribute_container"&gt;
-          &lt;img className="card__attribute" src={primaryAttr} alt="hero attribute" /&gt;
-        &lt;/div&gt;
-      &lt;/div&gt;
+    &lt;div className="form__switcher padding"&gt;
+      &lt;label&gt;Type of attack : &lt;/label&gt;
+      &lt;span&gt;
+        {' '}
+        &lt;img src={rangedIco} alt="rangedIco" /&gt; Ranged
+      &lt;/span&gt;
+      &lt;label className="switch"&gt;
+        &lt;input type="checkbox" {...register('heroTypeAttack')} data-testid="typeAttackButton" /&gt;
+        &lt;span className="slider round"&gt;&lt;/span&gt;
+      &lt;/label&gt;
+      &lt;span&gt;
+        {' '}
+        &lt;img src={meleeIco} alt="meleeIco" /&gt; Melee
+      &lt;/span&gt;
     &lt;/div&gt;
   );
 };
 &nbsp;
-export default Card;
+export default TypeOfAttackForm;
 &nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
