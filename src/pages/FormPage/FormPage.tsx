@@ -1,4 +1,5 @@
-import React, { useRef, useState } from 'react';
+/* eslint-disable @typescript-eslint/no-unused-vars */
+import React, { useState } from 'react';
 import './FormPage.css';
 import IForm from '../../interfaces/IForm';
 import CustomCard from '../../components/CustomCard/CustomCard';
@@ -12,8 +13,10 @@ import DateForm from '../../components/Forms/DateForm';
 import ImageForm from '../../components/Forms/ImageForm';
 import AcceptForm from '../../components/Forms/AcceptForm';
 import ValidteForm from '../../components/Forms/ValidateForm';
+import { useForm, FormProvider, SubmitHandler, FieldValues } from 'react-hook-form';
 
 const FormPage: React.FC<IForm> = () => {
+  const [heroName, setHeroName] = useState('');
   const [typeAttack, setTypeAttack] = useState(true);
   const [agree, setAgree] = useState(false);
   const [imageUrl, setImageUrl] = useState('');
@@ -29,109 +32,28 @@ const FormPage: React.FC<IForm> = () => {
   const [acceptFormDirty, setAcceptFormDirty] = useState(false);
   const [showForm, setShowForm] = useState(false);
 
-  const formRef = useRef<HTMLFormElement>(null);
-  const textInput = useRef<HTMLInputElement>(null);
-  const selectInput = useRef<HTMLSelectElement>(null);
-  const dateInput = useRef<HTMLInputElement>(null);
-  const currentDate = new Date();
+  const methods = useForm({ mode: 'onSubmit' });
 
-  const dateValidation = () => {
-    const selectedDateVal = dateInput.current?.value;
-    const selectedDate = new Date(selectedDateVal as unknown as Date);
-
-    if (selectedDate.getTime() <= currentDate.getTime()) {
-      setDateFormDirty(true);
-    } else setDateFormDirty(false);
-
-    if (selectedDateVal === '') {
-      setDateFormEmpty(true);
-    } else setDateFormEmpty(false);
+  const onSubmit: SubmitHandler<FieldValues> = (data) => {
+    console.log(data);
   };
 
-  const nameValidation = () => {
-    if (!textInput.current?.value.match(/^[A-Z][a-z]*$/)) {
-      setNameFromDirty(true);
-      setNameFromEmpty(false);
-    } else setNameFromDirty(false);
-
-    if (textInput.current?.value === '') {
-      setNameFromDirty(false);
-      setNameFromEmpty(true);
-    } else setNameFromEmpty(false);
-  };
-
-  const validateAllValues = () => {
-    dateValidation();
-    nameValidation();
-    setAttributeFromDirty(selectInput.current?.value === '');
-    setRoleFormDirty(role === '');
-    setAcceptFormDirty(!agree);
-    setImageFormDirty(imageUrl === '' ? true : false);
-  };
-
-  const checkValidation = () => {
-    const selectedDateVal = dateInput.current?.value;
-    const selectedDate = new Date(selectedDateVal as unknown as Date);
-
-    validateAllValues();
-
-    if (
-      !agree ||
-      !imageUrl ||
-      !selectedDateVal ||
-      selectedDate.getTime() <= currentDate.getTime() ||
-      !role ||
-      !selectInput.current?.value ||
-      !textInput.current?.value.match(/^[A-Z][a-z]*$/)
-    ) {
-      return;
-    }
-    showResult();
-  };
-
-  const zeroing = () => {
-    formRef.current?.reset();
-    setImageUrl('');
-    setAgree(false);
-    setRole('');
-  };
-
-  const showMessage = () => {
-    setShowForm(true);
-    setTimeout(() => {
-      setShowForm(false);
-    }, 4000);
-  };
-
-  const showResult = () => {
-    customHeroesArr.push({
-      heroName: textInput.current?.value,
-      heroAttribute: selectInput.current?.value,
-      heroTypeAttack: typeAttack,
-      heroDate: dateInput.current?.value,
-      heroAgree: agree,
-      heroImage: imageUrl,
-      heroRole: role,
-      id: customHeroesArr.length,
-    });
-    setCustomHeroesArr(customHeroesArr);
-    showMessage();
-    zeroing();
-  };
   return (
     <div className="FormPage" data-testid="form">
       <div className={showForm ? 'animation' : 'popup_container'}>{showForm && <PopUp />}</div>
       <div className="form__container">
-        <form className="form" onSubmit={zeroing.bind(this)} ref={formRef}>
-          <NameForm nameFromEmpty={nameFromEmpty} nameFromDirty={nameFromDirty} />
-          <AttributeForm attributeFromDirty={attributeFromDirty} />
-          <TypeOfAttackForm typeAttack={typeAttack} setTypeAttack={setTypeAttack} />
-          <RoleForm roleFormDirty={roleFormDirty} />
-          <DateForm dateFormDirty={dateFormDirty} dateFormEmpty={dateFormEmpty} />
-          <ImageForm imageFormDirty={imageFormDirty} setImageUrl={setImageUrl} />
-          <AcceptForm acceptFormDirty={acceptFormDirty} setAgree={setAgree} />
-          <ValidteForm />
-        </form>
+        <FormProvider {...methods}>
+          <form className="form" onSubmit={methods.handleSubmit(onSubmit)}>
+            <NameForm />
+            <AttributeForm />
+            <TypeOfAttackForm typeAttack={typeAttack} setTypeAttack={setTypeAttack} />
+            <RoleForm roleFormDirty={roleFormDirty} />
+            <DateForm dateFormDirty={dateFormDirty} dateFormEmpty={dateFormEmpty} />
+            <ImageForm imageFormDirty={imageFormDirty} setImageUrl={setImageUrl} />
+            <AcceptForm acceptFormDirty={acceptFormDirty} setAgree={setAgree} />
+            <ValidteForm />
+          </form>
+        </FormProvider>
       </div>
       <div className="cards">
         {customHeroesArr.map((card) => (
