@@ -15,6 +15,7 @@ const AcceptForm: React.FC = () => {
         {...register('heroAgree', {
           required: 'You must to agree',
         })}
+        data-testid="agree"
       />
       {errors.heroAgree && <div className="wrong">{errors.heroAgree.message?.toString()}</div>}
     </div>

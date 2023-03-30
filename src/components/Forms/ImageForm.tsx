@@ -16,6 +16,7 @@ const ImageForm: React.FC = () => {
           required: 'You must to upload image',
         })}
         accept="image/png, image/jpeg"
+        data-testid="image"
       />
       {errors.heroImage && <div className="wrong">{errors.heroImage.message?.toString()}</div>}
     </div>

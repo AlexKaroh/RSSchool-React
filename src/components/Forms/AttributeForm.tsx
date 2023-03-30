@@ -15,6 +15,7 @@ const AttributeForm: React.FC = () => {
         {...register('heroAttribute', {
           required: 'You must select an attribute',
         })}
+        data-testid="select"
       >
         <option value="">Select Attribute</option>
         <option value="Agility">Agility</option>

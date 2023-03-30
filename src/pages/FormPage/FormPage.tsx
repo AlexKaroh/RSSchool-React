@@ -60,7 +60,7 @@ const FormPage: React.FC<IForm> = () => {
           </form>
         </FormProvider>
       </div>
-      <div className="cards">
+      <div className="cards" data-testid="cards">
         {customHeroesArr.map((card) => (
           <CustomCard
             key={card.id}

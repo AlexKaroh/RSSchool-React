@@ -26,10 +26,10 @@ describe('Header component', () => {
 
   it('render header', () => {
     const { getByText } = render(
-      <MemoryRouter initialEntries={['/heroes']}>
+      <MemoryRouter initialEntries={['/Form']}>
         <Header />
         <Routes>
-          <Route path="/heroes"></Route>
+          <Route path="/Form"></Route>
         </Routes>
       </MemoryRouter>
     );

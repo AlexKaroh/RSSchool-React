@@ -33,9 +33,11 @@ const CustomCard: React.FC<ICustomCardProps> = ({
   return (
     <div className="card">
       <div className="card__image_container">
-        <img src={heroImage} className="card__image" alt="hero image" />
+        <img src={heroImage} className="card__image" data-testid="hero-img" alt="hero image" />
       </div>
-      <div className="card__hero_name">{heroName}</div>
+      <div className="card__hero_name" data-testid="hero-name">
+        {heroName}
+      </div>
       <div className="card__image_header">
         <div className="card__hero_attack">{createHeroTypeAttack()}</div>
         <img
@@ -43,9 +45,13 @@ const CustomCard: React.FC<ICustomCardProps> = ({
           className="card__hero_attribute_image"
           alt="hero_attribute"
         />
-        <div className="card__hero_role">{heroRole}</div>
+        <div className="card__hero_role" data-testid="hero-role">
+          {heroRole}
+        </div>
       </div>
-      <div className="card__hero_date">Release date: {heroDate}</div>
+      <div className="card__hero_date" data-testid="hero-date">
+        Release date: {heroDate}
+      </div>
     </div>
   );
 };

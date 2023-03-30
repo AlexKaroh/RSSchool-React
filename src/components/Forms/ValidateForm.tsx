@@ -2,7 +2,7 @@ import React from 'react';
 
 const ValidteForm = () => {
   return (
-    <input type="submit" value="Create Hero" className="form__submit" data-testid="submit-button" />
+    <input type="submit" value="Create Hero" data-testid="submit-button" className="form__submit" />
   );
 };
 
