@@ -54,7 +54,15 @@ describe('FormPage', () => {
   });
 
   test('submits the form and adds a custom card', () => {
-    render(<FormPage />);
+    render(
+      <FormPage
+        typeAttack={false}
+        agree={undefined}
+        imageUrl={undefined}
+        role={undefined}
+        customHeroesArr={[]}
+      />
+    );
 
     const nameInput = screen.getByTestId('name_input');
     userEvent.type(nameInput, 'Axe');

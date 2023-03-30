@@ -14,7 +14,18 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/AboutUs" element={<AboutUs />} />
-        <Route path="/Form" element={<FormPage />} />
+        <Route
+          path="/Form"
+          element={
+            <FormPage
+              typeAttack={false}
+              agree={undefined}
+              imageUrl={undefined}
+              role={undefined}
+              customHeroesArr={[]}
+            />
+          }
+        />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
