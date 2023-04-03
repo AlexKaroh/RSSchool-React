@@ -1,28 +1,29 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import './HomePage.css';
 import heroes from '../../heroes.json';
 import searchImg from '../../assets/search.svg';
 import Card from '../../components/Card/Card';
 
 const Home = () => {
-  const [searchValue, setSearchValue] = useState('');
+  const [searchValue, setSearchValue] = useState(localStorage.getItem('Search Value') || '');
   const [filteredArr, setFilteredArr] = useState(heroes);
+  const searchRef = useRef<string>(searchValue);
 
   useEffect(() => {
-    let memory = localStorage.getItem('Search Value');
-    if (memory === null) memory = '';
-    setSearchValue(memory);
+    return () => {
+      localStorage.setItem('Search Value', searchRef.current || '');
+    };
   }, []);
 
   useEffect(() => {
     const filteredArr = heroes.filter((el) =>
       el.name.toLowerCase().includes(searchValue.toLowerCase())
     );
+    searchRef.current = searchValue;
     setFilteredArr(filteredArr);
   }, [searchValue]);
 
   const handleChange = (searchValue: string) => {
-    localStorage.setItem('Search Value', searchValue);
     setSearchValue(searchValue);
   };
 
