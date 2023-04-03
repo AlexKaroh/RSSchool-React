@@ -7,10 +7,9 @@ const Footer = () => {
     <footer className="footer">
       <div className="footer__author"></div>
       <span className="footer__copyright">
-        Images & Video by{' '}
         <a className="footer__ref" href="https://www.dota2.com/">
-          Dota 2
         </a>
+        April 2023
       </span>
       <a href="https://rs.school/">
         <img className="footer__school_logo" src={rsslogo} alt="rss logo" />
