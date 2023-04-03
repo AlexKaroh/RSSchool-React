@@ -8,11 +8,11 @@
 
 .card {
   margin: 20px;
-  width: 180px;
+  width: 205px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
   background-color: #2325299d;
   box-shadow: 1px 11px 14px 3px rgba(0,0,0,0.82);
 }
@@ -43,8 +43,8 @@
 }
 
 .card__image {
-  width: 180px;
-  height: 100px;
+  width: 205px;
+  height: 205px;
 }
 
 .card__attack {
