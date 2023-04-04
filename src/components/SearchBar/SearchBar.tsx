@@ -1,35 +1,16 @@
 import './SearchBar.css';
 import ISearchBarProps from '../../interfaces/ISearchBar';
 import searchImg from '../../assets/search.svg';
-import axios from 'axios';
 import React from 'react';
 
-const SearchBar: React.FC<ISearchBarProps> = ({
-  searchValue,
-  setSearchValue,
-  setArr,
-  response,
-  setResponse,
-}) => {
+const SearchBar: React.FC<ISearchBarProps> = ({ searchValue, setSearchValue, setResponse }) => {
   const handleChange = (e: string) => {
     setSearchValue(e);
-  };
-
-  const getArray = async () => {
-    return axios
-      .get(response)
-      .then((result) => {
-        setArr(result.data.results);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
   };
 
   const handleClick = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter') {
       setResponse('https://rickandmortyapi.com/api/character' + '/?name=' + searchValue);
-      getArray();
     }
   };
 

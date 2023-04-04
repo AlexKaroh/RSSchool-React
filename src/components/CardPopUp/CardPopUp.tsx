@@ -4,9 +4,6 @@ import IModalCardProps from 'interfaces/IModalCardProps';
 import cross from '../../assets/cross.svg';
 
 const CardPopUp: React.FC<IModalCardProps> = ({ modalActive, setModalActive, activeCardData }) => {
-  {
-    console.log(activeCardData![0]);
-  }
   return (
     <div
       className={modalActive ? 'modal activated' : 'modal'}
