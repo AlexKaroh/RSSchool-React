@@ -1,0 +1,24 @@
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  height: 50px;
+  width: 100%;
+  background-color: #232529;
+  border-top: 4px solid #35383f;
+  font-size: 16px;
+}
+
+.footer__school_logo:hover {
+  transform: scale(1.15);
+  transition: 0.3s;
+}
+
+.footer__ref {
+  text-decoration: none;
+  color: rgb(255, 78, 78);
+}
+
+.footer__author {
+  padding-left: 20px;
+}
