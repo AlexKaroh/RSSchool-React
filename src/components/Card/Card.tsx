@@ -1,13 +1,13 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-import React, { useState } from 'react';
+import React from 'react';
 import './Card.css';
 import CardProps from '../../interfaces/ICard';
 
-const Card: React.FC<CardProps> = ({ id, image, name, arr }) => {
+const Card: React.FC<CardProps> = ({ id, image, name, arr, setModalActive, setActiveCardData }) => {
   const getArray = async (el: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+    setModalActive!(true);
     const name = el.currentTarget.id;
-    console.log(name);
-    console.log(arr?.filter((el) => el.name === name));
+    const cardData = arr?.filter((el) => el.name === name);
+    setActiveCardData!(cardData!);
   };
   return (
     <div className="card" id={name} key={id} onClick={(el) => getArray(el)}>

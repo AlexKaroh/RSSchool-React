@@ -1,3 +1,5 @@
+import { Dispatch, SetStateAction } from 'react';
+
 export default interface CardProps {
   created?: string;
   episode?: string[];
@@ -12,4 +14,8 @@ export default interface CardProps {
   type?: string;
   url?: string;
   arr?: CardProps[];
+  modalActive?: boolean;
+  setModalActive?: (type: boolean) => void;
+  activeCardData?: CardProps[];
+  setActiveCardData?: Dispatch<SetStateAction<CardProps[]>>;
 }
