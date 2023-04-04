@@ -45,7 +45,7 @@ const Home = () => {
       />
       <div className="card__container" data-testid="card">
         {arr.map((item) => {
-          return <Card key={item.id} id={item.id} image={item.image} name={item.name} />;
+          return <Card key={item.id} id={item.id} image={item.image} name={item.name} arr={arr} />;
         })}
       </div>
     </div>

@@ -2,7 +2,7 @@ export default interface CardProps {
   created?: string;
   episode?: string[];
   gender?: string;
-  id?: number;
+  id?: string;
   image?: string;
   location?: { name: string; url: string };
   name?: string;
@@ -11,4 +11,5 @@ export default interface CardProps {
   status?: string;
   type?: string;
   url?: string;
+  arr?: CardProps[];
 }
