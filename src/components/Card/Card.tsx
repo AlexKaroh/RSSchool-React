@@ -10,7 +10,13 @@ const Card: React.FC<CardProps> = ({ id, image, name, arr, setModalActive, setAc
     setActiveCardData!(cardData!);
   };
   return (
-    <div className="card" id={name} key={id} onClick={(el) => getArray(el)}>
+    <div
+      className="card"
+      data-testid="card_container"
+      id={name}
+      key={id}
+      onClick={(el) => getArray(el)}
+    >
       <div className="card__image_container">
         <img className="card__image" src={image} alt="hero image" />
       </div>

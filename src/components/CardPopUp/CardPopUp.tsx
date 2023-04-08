@@ -8,6 +8,7 @@ const CardPopUp: React.FC<IModalCardProps> = ({ modalActive, setModalActive, act
     <div
       className={modalActive ? 'modal activated' : 'modal'}
       onClick={() => setModalActive(false)}
+      data-testid="modal"
     >
       <div
         className={modalActive ? 'modal__content activated' : 'modal__content'}
