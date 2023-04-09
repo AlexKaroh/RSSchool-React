@@ -1,12 +1,11 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 import Home from './HomePage';
+import { vi } from 'vitest';
+
+vi.mock('axios');
 
 describe('Home Component', () => {
-  beforeEach(() => {
-    localStorage.clear();
-  });
-
   test('render search button', () => {
     const { getByAltText } = render(<Home />);
     const searchButton = getByAltText('search img');

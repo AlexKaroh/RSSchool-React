@@ -31,6 +31,7 @@ const Home = () => {
           setIsFailed(false);
           setIsLoad(false);
           setArr(result.data.results);
+          console.log(result.data.results);
         })
         .catch(() => {
           setUnfoundWord(searchValue);
@@ -69,6 +70,7 @@ const Home = () => {
               {arr.map((item) => {
                 return (
                   <Card
+                    data-testid="card_test"
                     key={item.id}
                     id={item.id}
                     image={item.image}
