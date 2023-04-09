@@ -1,0 +1,20 @@
+.popup {
+  top: 25px;
+  width: 400px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  background-color: #00000050;
+  transition: 0.3s ease-in-out;
+}
+
+.popup__message {
+  margin: 0;
+  font-family: "Reaver Regular";
+}
+
+.green {
+  color: #72e58a;
+}

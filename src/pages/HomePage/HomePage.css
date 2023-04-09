@@ -1,0 +1,6 @@
+.home {
+  min-height: calc(100vh - 110px);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}

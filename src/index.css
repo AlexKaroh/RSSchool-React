@@ -1,0 +1,72 @@
+@font-face {
+  font-family: "Reaver Regular";
+  src: url(./fonts/Reaver-Regular.woff);
+  font-style: normal;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: "Reaver SemiBold";
+  src: url(./fonts/Reaver-SemiBold.woff);
+  font-style: normal;
+  font-weight: normal;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-image: url(./assets/dota_back.jpg);
+  background-size: 100% auto;
+  background-repeat: no-repeat; 
+  background-position: center top;
+  background-attachment: fixed;
+  position: relative;
+  background-color: #232529;
+  color: #fff;
+  font-family: Inter,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;
+}
+
+input[type=text] {
+  padding: 0 0 2px 5px;
+  font-family: 'Reaver Regular';
+  font-size: 16px;
+  color: whitesmoke;
+  border-radius: 2px;
+}
+
+input[type=text]:focus  {
+  outline: none;
+  border-radius: 2px;
+}
+
+button:focus {
+  outline: none;
+}
+
+select, select:focus, select:focus-visible {
+  border: 1px solid rgba(255, 255, 255, 0.265);
+  border-radius: 2px;
+  outline: none !important;
+  background-color: #25282a;
+  font-family: 'Reaver Regular';
+  font-size: 16px;
+  color: white;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  width: 5px;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #232529;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-track-piece {
+  background: rgb(80, 80, 80);
+}

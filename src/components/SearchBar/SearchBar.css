@@ -1,0 +1,30 @@
+.search_container {
+  padding: 20px 0 0 0;
+}
+
+.seacrh__form {
+  margin: 20px 0 0;
+  display: flex;
+  justify-content: space-between;
+  width: 300px;
+  background-color: #25282a;
+  border: 1px solid #25282a;
+  border-radius: 2px;
+}
+
+.seacrh__bar {
+  height: 30px;
+  width: 100%;
+  background-color: #25282a;
+  border: 1px solid hsl(204, 6%, 15%);
+}
+
+.seacrh__bar:focus {
+  border: 1px solid #25282a;
+}
+
+.search__submit {
+  border: none;
+  height: 35px;
+  background-color: #25282a;
+}
