@@ -31,7 +31,6 @@ const Home = () => {
           setIsFailed(false);
           setIsLoad(false);
           setArr(result.data.results);
-          console.log(result.data.results);
         })
         .catch(() => {
           setUnfoundWord(searchValue);
